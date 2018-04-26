@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% include "partials/_content_head.njk" %}
+
+    {% for content in contentList %}
+      {% if content.title == "CodeClan Weeks 1-2: Learning to Pace Myself"%}
+      <title>CodeClan Weeks 1-2: Learning to Pace Myself</title>
+      <meta name="description" content="{{content.short_blurb}}" />
+
+      <!-- Twitter Card data -->
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:title" content="{{content.title}}">
+      <meta name="twitter:description" content="{{content.long_blurb}}">
+      <meta name="twitter:creator" content="@ktweeden">
+
+      <!-- Open Graph data -->
+      <meta property="og:title" content="{{content.title}}" />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="http://www.kate-preston.co.uk/wk_1_2_review.html" />
+      <meta property="og:description" content="{{content.long_blurb}}" />
+      <meta property="og:site_name" content="kate-preston.co.uk" />
+      {% endif %}
+    {% endfor %}
+  </head>
+  <body>
+    <div class="content-container">
+      <div class="title">
+        <h2>CodeClan Weeks 1-2: Learning to Pace Myself</h2>
+      </div>
+      {% include "./partials/_navigation.njk" %}
+      <article class="content">
+
+        <p>On the evening of my second day at CodeClan I ended up at hospital at
+        midnight because my eight month old daughter was having trouble breathing.
+        She was fine, but we all got about three hours of sleep. The next few nights
+        I stayed up hours later than I usually would reading around the topics
+        we'd covered in class. That weekend I caught the flu. Or rather, I caught
+        the steroid-taking cousin of flu that can only be found in the germ mecca
+        that we call nursery. Propped up by lemsip, strepsils, and ibuprofen I
+        continued my nightly reading, getting more and more ill.</p>
+
+        <p>These first two weeks have been a lesson in pacing myself.</p>
+
+        <p>Part of the problem is that I am having an obscene amount of fun. I
+        love learning pretty much anything, but there's something about software
+        development that makes me forget that I should eat. I'm not sure
+        if it's just the things I mentioned in my <a href="/whynow.html">previous
+        post</a>, or something else. I'll have to keep thinking about it.</p>
+
+        <div class="line"></div>
+
+        <p>The first module is in Ruby and focuses on teaching basic principles
+        of programming that we'll be able to apply to other languages that we learn,
+        albeit with various added idiosyncrasies. So far nothing about the content
+        has come as a surprise, which is a relief because my previous job at
+        CodeClan involved telling people what the course involved.</p>
+
+        <p>What has been a surprise, though, is the pair programming. I knew that
+        pairing featured heavily in the course and could give you a few lines of
+        chat about what it is any why it's included. What I didn't
+        realise is how much of a skill it is in its own right. In fact, I'm
+        starting to get the sneaking suspicion that the most challenging part of
+        programming is all the stuff the involves communicating with other
+        people. Like life in general.</p>
+
+        <p>On Wednesday of the second week we had a full day lab in which we were
+        given a brief, paired off and set to work. Two people, one computer: more
+        brains to solve the problem. Pair programming is fun, but it's also tiring.
+        Instead of being a law unto yourself, diving into a problem without too
+        much forethought, each part of the solution comes with a discussion. You
+        have to think carefully about how to communicate your ideas, and in talking
+        them out be open to being confronted by the gaps in your knowledge. Pair
+        programming is a good exercise in quieting your ego: it's not about being
+        better than the other person, or telling them what to do. It's about
+        working together, learning from each other, producing work that is of a
+        higher quality than either of you could have produced on your own.</p>
+
+
+        <div class="line"></div>
+
+        <p>If you want to hear a bit more about what my classmates and I made
+        during that full day lab mentioned above, checkout the
+        <a href = "https://vimeo.com/254701073">short videos</a> I made about our
+        <a href = "https://vimeo.com/255035174">projects</a>.</p>
+
+      </article>
+      {% include "./partials/_footer.njk" %}
+    </div>
+  </body>
+</html>
