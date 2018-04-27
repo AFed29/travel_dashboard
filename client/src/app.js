@@ -1,6 +1,8 @@
 const AllCountriesView = require('./views/all_countries_view.js');
 const VisitedView = require('./views/visited_view.js');
 const ToVisitView = require('./views/to_visit_view.js');
+const Visited = require('./models/visited.js');
+const ToVisit = require('./models/to_visit.js');
 const Countries = require('./models/countries.js');
 const Request = require('./helpers/request.js');
 
@@ -17,6 +19,21 @@ const appStart = function() {
 
   visitedRequest.get(visitedView.renderAll);
   toVisitRequest.get(toVisitView.renderAll);
-}
+
+  const visitedSelect = document.querySelector('#visited-select');
+  const toVisitSelect = document.querySelector('#to-visit-select');
+
+  visitedSelect.addEventListener('change', (event) => {
+    const selectedCountry = countries.findByAlpha3Code(event.target.value);
+    const newVistedCountry = new Visited(selectedCountry);
+    visitedRequest.post(newVistedCountry, visitedView.renderOne);
+  });
+
+  toVisitSelect.addEventListener('change', (event) => {
+    const selectedCountry = countries.findByAlpha3Code(event.target.value);
+    const newToVisitCountry = new ToVisit(selectedCountry);
+    toVisitRequest.post(newToVisitCountry, toVisitView.renderOne);
+  });
+};
 
 document.addEventListener('DOMContentLoaded', appStart);

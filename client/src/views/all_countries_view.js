@@ -15,7 +15,7 @@ AllCountriesView.prototype.renderSelects = function (countriesArray) {
 const renderOption = function(parentSelect, country) {
   const option = document.createElement('option');
   option.textContent = country.name;
-  option.value = country.alpha3code;
+  option.value = country.alpha3Code;
   parentSelect.appendChild(option);
 };
 

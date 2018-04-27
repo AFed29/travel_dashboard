@@ -14,7 +14,7 @@ Countries.prototype.getData = function(onComplete) {
 };
 
 Countries.prototype.findByAlpha3Code = function (code) {
-  return this.countries.find(country => country.alpha3code === code);
+  return this.countries.find(country => country.alpha3Code === code);
 };
 
 module.exports = Countries;
