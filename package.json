@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -w",
-    "test": "mocha specs",
+    "test": "mocha specs --reporter nyan",
     "server:dev": "nodemon ./server/server.js",
     "start": "node ./server/server.js"
   },
