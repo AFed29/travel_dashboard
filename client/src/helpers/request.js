@@ -32,3 +32,5 @@ Request.prototype.post = function (dataToSend, onComplete) {
   const jsonDataToSend = JSON.stringify(dataToSend);
   request.send(jsonDataToSend);
 };
+
+module.exports = Request;
