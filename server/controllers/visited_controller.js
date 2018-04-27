@@ -33,6 +33,21 @@ visitedRouter.post('/', function(req, res){
     res.json(visitedCountry.ops[0]);
   });
 });
+
+visitedRouter.delete('/', function(req, res){
+  visitedCountriesCollection.deleteMany(function(err) {
+    if(err){
+      console.error(err);
+      res.status(500);
+      res.send();
+      return;
+    };
+    console.log('Everything has gone');
+    res.status(204);
+    res.send();
+  });
+});
+
 return visitedRouter
 }
 

@@ -18,22 +18,36 @@ const createToVisitRouter = function(dbConnection) {
   });
 
 
-toVisitRouter.post('/', function(req, res){
-  const newToVisitCountry = req.body;
-  toVisitCountriesCollection.save(newToVisitCountry, function(err, toVisitCountry){
-    if(err){
-      console.error(err);
-      res.status(500);
-      res.send();
-      return;
-
-    };
-    console.log('Saved!');
-    res.status(201);
-    res.json(toVisitCountry.ops[0]);
+  toVisitRouter.post('/', function(req, res){
+    const newToVisitCountry = req.body;
+    toVisitCountriesCollection.save(newToVisitCountry, function(err, toVisitCountry){
+      if(err){
+        console.error(err);
+        res.status(500);
+        res.send();
+        return;
+      };
+      console.log('Saved!');
+      res.status(201);
+      res.json(toVisitCountry.ops[0]);
+    });
   });
-});
-return toVisitRouter
-}
+
+  toVisitRouter.delete('/', function(req, res){
+    toVisitCountriesCollection.deleteMany(function(err) {
+      if(err){
+        console.error(err);
+        res.status(500);
+        res.send();
+        return;
+      };
+      console.log('Everything has gone');
+      res.status(204);
+      res.send();
+    });
+  });
+
+  return toVisitRouter;
+};
 
 module.exports = createToVisitRouter;
