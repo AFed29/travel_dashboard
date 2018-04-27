@@ -7,7 +7,7 @@ const createToVisitRouter = require('./to_visit_controller.js')
 const createIndexRouter = function(dbConnection){
 
   router.use('/visited', createVisitedRouter(dbConnection));
-  // router.use('/tovisit', createToVisitRouter(dbConnection));
+  router.use('/tovisit', createToVisitRouter(dbConnection));
 
   return router;
 }
