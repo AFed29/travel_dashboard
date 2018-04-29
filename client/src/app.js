@@ -38,20 +38,26 @@ const appStart = function() {
 
   visitedSelect.addEventListener('change', (event) => {
     const selectedCountry = countries.findByAlpha3Code(event.target.value);
-    const newVistedCountry = new Visited(selectedCountry);
-    visitedRequest.post(newVistedCountry, (country) => {
-      mainMap.addVisitedMarker(country.latlng);
-      visitedView.renderOne(country);
-    });
+    if (!countries.findIfCountryAlreadyInVisited(selectedCountry)) {
+      const newVistedCountry = new Visited(selectedCountry);
+      visitedRequest.post(newVistedCountry, (country) => {
+        mainMap.addVisitedMarker(country.latlng);
+        visitedView.renderOne(country);
+        countries.visitedCountries.push(country);
+      });
+    }
   });
 
   toVisitSelect.addEventListener('change', (event) => {
     const selectedCountry = countries.findByAlpha3Code(event.target.value);
-    const newToVisitCountry = new ToVisit(selectedCountry);
-    toVisitRequest.post(newToVisitCountry,  (country) => {
-      mainMap.addToVisitMarker(country.latlng, country);
-      toVisitView.renderOne(country);
-    });
+    if (!countries.findIfCountryAlreadyInToVisit(selectedCountry)) {
+      const newToVisitCountry = new ToVisit(selectedCountry);
+      toVisitRequest.post(newToVisitCountry,  (country) => {
+        mainMap.addToVisitMarker(country.latlng, country);
+        toVisitView.renderOne(country);
+        countries.toVisitCountries.push(country);
+      });
+    }
   });
 
 };
