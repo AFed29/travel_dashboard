@@ -39,13 +39,19 @@ const appStart = function() {
   visitedSelect.addEventListener('change', (event) => {
     const selectedCountry = countries.findByAlpha3Code(event.target.value);
     const newVistedCountry = new Visited(selectedCountry);
-    visitedRequest.post(newVistedCountry, visitedView.renderOne);
+    visitedRequest.post(newVistedCountry, (country) => {
+      mainMap.addVisitedMarker(country.latlng);
+      visitedView.renderOne(country);
+    });
   });
 
   toVisitSelect.addEventListener('change', (event) => {
     const selectedCountry = countries.findByAlpha3Code(event.target.value);
     const newToVisitCountry = new ToVisit(selectedCountry);
-    toVisitRequest.post(newToVisitCountry, toVisitView.renderOne);
+    toVisitRequest.post(newToVisitCountry,  (country) => {
+      mainMap.addToVisitMarker(country.latlng);
+      toVisitView.renderOne(country);
+    });
   });
 
 };

@@ -13,7 +13,7 @@ MapWrapper.prototype.addVisitedMarker = function (coordinates) {
   this.visitedMarkers.push(marker);
 };
 
-MapWrapper.prototype.addtoVisitMarker = function (coordinates) {
+MapWrapper.prototype.addToVisitMarker = function (coordinates) {
   const marker = new google.maps.Marker({map: this.googleMap, position: coordinates, icon: this.toVisitIcon});
   this.toVisitMarkers.push(marker);
 };
@@ -23,7 +23,7 @@ MapWrapper.prototype.populateAllVisitedMarkers = function (visitedCountries) {
 };
 
 MapWrapper.prototype.populateAllToVisitMarkers = function (toVisitCountries) {
-  toVisitCountries.forEach(country => this.addtoVisitMarker(country.latlng));
+  toVisitCountries.forEach(country => this.addToVisitMarker(country.latlng));
 };
 
 module.exports = MapWrapper;
