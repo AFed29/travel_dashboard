@@ -49,7 +49,7 @@ const appStart = function() {
     const selectedCountry = countries.findByAlpha3Code(event.target.value);
     const newToVisitCountry = new ToVisit(selectedCountry);
     toVisitRequest.post(newToVisitCountry,  (country) => {
-      mainMap.addToVisitMarker(country.latlng);
+      mainMap.addToVisitMarker(country.latlng, country);
       toVisitView.renderOne(country);
     });
   });
