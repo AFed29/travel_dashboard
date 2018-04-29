@@ -21,8 +21,9 @@ const createToVisitRouter = function(dbConnection) {
 
   toVisitRouter.get('/:id', function(req, res){
     const id = req.params.id;
-    const objectID = ObjectID(id)
-    toVisitCountriesCollection.findOne({_id: ObjectID}, function(err, toVisitCountry){
+    const objectID = ObjectID(id);
+
+    toVisitCountriesCollection.findOne({_id: objectID}, function(err, toVisitCountry){
       if(err){
         console.error(err);
         res.status(500);

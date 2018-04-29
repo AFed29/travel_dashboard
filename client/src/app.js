@@ -38,6 +38,7 @@ const appStart = function() {
     countries.toVisitCountries = toVisitCountries;
     toVisitView.renderAll(toVisitCountries);
     mainMap.populateAllToVisitMarkers(toVisitCountries);
+    scheduleView.renderSelect(toVisitCountries);
   });
 
   scheduleRequest.get((schedules) => {
@@ -74,6 +75,33 @@ const appStart = function() {
     });
   });
 
+  const createScheduleForm = document.querySelector('form');
+  createScheduleForm.addEventListener('submit', onScheduleFormSubmit);
+
 };
+
+const createScheduleRequestComplete = function(schedule) {
+  const newSchedule = new Schedule(schedule);
+  newSchedule.getCountryInfo(() => {
+    console.log('got country info', newSchedule);
+    scheduleView.renderOne(newSchedule);
+  })
+}
+
+const onScheduleFormSubmit = function(event) {
+  event.preventDefault();
+  console.log('Form submitted');
+
+  const countryID = event.target.scheduleCountry.value;
+  console.dir(event.target.scheduleCountry.value);
+  const startDate = event.target.startDate.value;
+  const endDate = event.target.endDate.value;
+
+  const newSchedule = new Schedule({countryID: countryID, startDate: startDate, endDate: endDate});
+  console.log('new schedule:', newSchedule);
+  scheduleRequest.post(newSchedule, createScheduleRequestComplete);
+}
+
+
 
 document.addEventListener('DOMContentLoaded', appStart);
