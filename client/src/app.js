@@ -16,14 +16,25 @@ const visitedRequest = new Request('http://localhost:3000/visited/');
 const toVisitRequest = new Request('http://localhost:3000/tovisit/');
 
 const appStart = function() {
-  countries.getData(countriesView.renderSelects);
-
-  visitedRequest.get(visitedView.renderAll);
-  toVisitRequest.get(toVisitView.renderAll);
-
   const visitedSelect = document.querySelector('#visited-select');
   const toVisitSelect = document.querySelector('#to-visit-select');
   const mapContainer = document.querySelector('#map-wrapper');
+  const codeClan = {lat: 55.946962, lng: -3.201958};
+  const mainMap = new MapWrapper(mapContainer, codeClan, 3);
+
+  countries.getData(countriesView.renderSelects);
+
+  visitedRequest.get((visitedCountries) => {
+    countries.visitedCountries = visitedCountries;
+    visitedView.renderAll(visitedCountries);
+    mainMap.populateAllVisitedMarkers(visitedCountries);
+  });
+
+  toVisitRequest.get((toVisitCountries) => {
+    countries.toVisitCountries = toVisitCountries;
+    toVisitView.renderAll(toVisitCountries);
+    mainMap.populateAllToVisitMarkers(toVisitCountries);
+  });
 
   visitedSelect.addEventListener('change', (event) => {
     const selectedCountry = countries.findByAlpha3Code(event.target.value);
@@ -36,8 +47,7 @@ const appStart = function() {
     const newToVisitCountry = new ToVisit(selectedCountry);
     toVisitRequest.post(newToVisitCountry, toVisitView.renderOne);
   });
-  const codeClan = {lat: 55.946962, lng: -3.201958};
-  const mainMap = new MapWrapper(mapContainer, codeClan, 3);
+
 };
 
 document.addEventListener('DOMContentLoaded', appStart);
