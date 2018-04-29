@@ -4,6 +4,7 @@ const ToVisitView = require('./views/to_visit_view.js');
 const Visited = require('./models/visited.js');
 const ToVisit = require('./models/to_visit.js');
 const Countries = require('./models/countries.js');
+const MapWrapper = require('./models/map_wrapper.js');
 const Request = require('./helpers/request.js');
 
 const countriesView = new AllCountriesView();
@@ -22,6 +23,7 @@ const appStart = function() {
 
   const visitedSelect = document.querySelector('#visited-select');
   const toVisitSelect = document.querySelector('#to-visit-select');
+  const mapContainer = document.querySelector('#map-wrapper');
 
   visitedSelect.addEventListener('change', (event) => {
     const selectedCountry = countries.findByAlpha3Code(event.target.value);
@@ -34,6 +36,8 @@ const appStart = function() {
     const newToVisitCountry = new ToVisit(selectedCountry);
     toVisitRequest.post(newToVisitCountry, toVisitView.renderOne);
   });
+  const codeClan = {lat: 55.946962, lng: -3.201958};
+  const mainMap = new MapWrapper(mapContainer, codeClan, 3);
 };
 
 document.addEventListener('DOMContentLoaded', appStart);
