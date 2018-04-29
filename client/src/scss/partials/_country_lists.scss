@@ -5,7 +5,6 @@
   flex-direction: row;
   padding: $small-gap;
   justify-content: space-around;
-  background-color: $secondary-colour;
 
   .country-list {
     width: 45vw;
@@ -21,15 +20,15 @@
     }
 
     select {
-      height: $large-gap;
       font-family: $content-font;
       border: 1px solid $secondary-colour;
       align-self: center;
       font-size: 1rem;
     }
 
-    li {
+    ul {
       list-style: none;
+      margin: $large-gap;
     }
   }
 }

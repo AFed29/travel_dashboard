@@ -5,8 +5,10 @@ html, body {
   box-sizing: border-box; }
 
 h1 {
-  font-family: "Noto Serif", serif;
-  text-align: center; }
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  font-weight: normal;
+  font-size: 3rem; }
 
 #map-wrapper {
   height: 60vh;
@@ -16,8 +18,7 @@ h1 {
   display: flex;
   flex-direction: row;
   padding: 1rem;
-  justify-content: space-around;
-  background-color: #9BC1BC; }
+  justify-content: space-around; }
   #list-wrapper .country-list {
     width: 45vw;
     height: 40vh;
@@ -29,10 +30,11 @@ h1 {
       text-align: center;
       font-weight: normal; }
     #list-wrapper .country-list select {
-      height: 2rem;
       font-family: "Roboto", sans-serif;
       border: 1px solid #9BC1BC;
       align-self: center;
-      font-size: 1rem; }
-    #list-wrapper .country-list li {
-      list-style: none; }
+      font-size: 1rem;
+      height: 2rem; }
+    #list-wrapper .country-list ul {
+      list-style: none;
+      margin: 2rem; }
