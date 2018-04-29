@@ -6,14 +6,18 @@ const ToVisit = require('./models/to_visit.js');
 const Countries = require('./models/countries.js');
 const MapWrapper = require('./models/map_wrapper.js');
 const Request = require('./helpers/request.js');
+const Schedule =  require('./models/schedule.js');
+const ScheduleView = require('./views/schedule_view.js');
 
 const countriesView = new AllCountriesView();
 const visitedView = new VisitedView();
 const toVisitView = new ToVisitView();
+const scheduleView = new ScheduleView();
 const countries = new Countries();
 
 const visitedRequest = new Request('http://localhost:3000/visited/');
 const toVisitRequest = new Request('http://localhost:3000/tovisit/');
+const scheduleRequest = new Request('http://localhost:3000/schedule/');
 
 const appStart = function() {
   const visitedSelect = document.querySelector('#visited-select');
@@ -35,6 +39,22 @@ const appStart = function() {
     toVisitView.renderAll(toVisitCountries);
     mainMap.populateAllToVisitMarkers(toVisitCountries);
   });
+
+  scheduleRequest.get((schedules) => {
+    const allSchedules = [];
+    schedules.forEach((schedule) => {
+      console.log(schedule);
+      const newSchedule = new Schedule(schedule);
+      newSchedule.getCountryInfo(() =>{
+        console.log(newSchedule);
+      scheduleView.renderOne(newSchedule)
+    });
+      allSchedules.push(newSchedule);
+      console.log(newSchedule);
+    })
+    // scheduleView.renderAll(allSchedules);
+
+  })
 
   visitedSelect.addEventListener('change', (event) => {
     const selectedCountry = countries.findByAlpha3Code(event.target.value);

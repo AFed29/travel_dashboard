@@ -1,5 +1,6 @@
 const express = require('express');
 const toVisitRouter = new express.Router();
+const ObjectID = require('mongodb').ObjectID;
 
 
 const createToVisitRouter = function(dbConnection) {
@@ -16,6 +17,21 @@ const createToVisitRouter = function(dbConnection) {
       res.json(toVisitCountries);
     });
   });
+
+
+  toVisitRouter.get('/:id', function(req, res){
+    const id = req.params.id;
+    const objectID = ObjectID(id)
+    toVisitCountriesCollection.findOne({_id: ObjectID}, function(err, toVisitCountry){
+      if(err){
+        console.error(err);
+        res.status(500);
+        res.send();
+        return;
+      };
+      res.json(toVisitCountry);
+    })
+  })
 
 
   toVisitRouter.post('/', function(req, res){
