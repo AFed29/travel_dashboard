@@ -17,8 +17,8 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
   const db = client.db('travel_dashboard');
   console.log('connected to DB');
   server.use(createIndexRouter(db));
-  const toVisitCountriesCollection = db.collection('to_visit_countries');
   
+
 
   server.listen(3000, function() {
     console.log('Listening on port 3000');
