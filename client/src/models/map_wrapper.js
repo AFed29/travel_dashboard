@@ -3,15 +3,18 @@ const MapWrapper = function(container, center, zoom) {
 
   this.visitedMarkers = [];
   this.toVisitMarkers = [];
+
+  this.toVisitIcon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+  this.visitedIcon = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
 }
 
 MapWrapper.prototype.addVisitedMarker = function (coordinates) {
-  const marker = new google.maps.Marker({map: this.googleMap, position: coordinates});
+  const marker = new google.maps.Marker({map: this.googleMap, position: coordinates, icon: this.visitedIcon});
   this.visitedMarkers.push(marker);
 };
 
 MapWrapper.prototype.addtoVisitMarker = function (coordinates) {
-  const marker = new google.maps.Marker({map: this.googleMap, position: coordinates});
+  const marker = new google.maps.Marker({map: this.googleMap, position: coordinates, icon: this.toVisitIcon});
   this.toVisitMarkers.push(marker);
 };
 
