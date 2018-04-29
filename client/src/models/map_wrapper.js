@@ -21,9 +21,9 @@ MapWrapper.prototype.addToVisitMarker = function (coordinates, country) {
   const marker = new google.maps.Marker({map: this.googleMap, position: coordinates, icon: this.toVisitIcon});
 
   marker.addListener('click', function() {
-    console.log(country);
     toVisitView.renderInfoBox(country);
   });
+
     this.toVisitMarkers.push(marker);
 };
 

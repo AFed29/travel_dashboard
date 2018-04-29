@@ -18,12 +18,21 @@ ToVisitView.prototype.renderInfoBox = function (country) {
   infoBox.innerHTML = "";
 
   const ul = document.createElement('ul');
-  renderListItem(ul, country.capital);
+
+  renderListItem(ul, `Capital: ${country.capital}`);
+
+  renderListItem(ul, "Currencies:");
+  const currencyUl = document.createElement('ul');
+  ul.appendChild(currencyUl);
   country.currencies.forEach( currency => {
-    renderListItem(ul, currency.name);
+    renderListItem(currencyUl, currency.name);
   });
+
+  renderListItem(ul, "Languages:");
+  const languageUl = document.createElement('ul');
+  ul.appendChild(languageUl);
   country.languages.forEach( language => {
-    renderListItem(ul, language.name);
+    renderListItem(languageUl, language.name);
   });
   infoBox.appendChild(ul);
 };
