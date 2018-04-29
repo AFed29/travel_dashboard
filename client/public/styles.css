@@ -1,4 +1,38 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box; }
+
+h1 {
+  font-family: "Noto Serif", serif;
+  text-align: center; }
+
 #map-wrapper {
-  height: 500px;
-  width: 500px;
-}
+  height: 60vh;
+  width: 100vw; }
+
+#list-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  justify-content: space-around;
+  background-color: #9BC1BC; }
+  #list-wrapper .country-list {
+    width: 45vw;
+    height: 40vh;
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap; }
+    #list-wrapper .country-list h2 {
+      text-align: center;
+      font-weight: normal; }
+    #list-wrapper .country-list select {
+      height: 2rem;
+      font-family: "Roboto", sans-serif;
+      border: 1px solid #9BC1BC;
+      align-self: center;
+      font-size: 1rem; }
+    #list-wrapper .country-list li {
+      list-style: none; }
