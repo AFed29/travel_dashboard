@@ -19,6 +19,13 @@ ToVisitView.prototype.renderInfoBox = function (country) {
 
   const ul = document.createElement('ul');
 
+  renderListItem(ul, `Country: ${country.name}`);
+
+  const flag = document.createElement('img');
+  flag.id = 'flag-image';
+  flag.src = country.flagUrl;
+  ul.appendChild(flag);
+
   renderListItem(ul, `Capital: ${country.capital}`);
 
   renderListItem(ul, "Currencies:");
