@@ -1,13 +1,11 @@
 const AllCountriesView = function() {
 }
 
-AllCountriesView.prototype.renderSelects = function (countriesArray) {
-  const visitedSelect = document.querySelector('#visited-select');
-  const toVisitSelect = document.querySelector('#to-visit-select');
+AllCountriesView.prototype.renderSelect = function (countriesArray, selectList) {
 
   countriesArray.forEach((country, index) => {
-    renderOption(visitedSelect, country, index);
-    renderOption(toVisitSelect, country, index);
+    renderOption(selectList, country, index);
+
   });
 };
 
