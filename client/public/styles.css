@@ -41,5 +41,29 @@ h1 {
 #info-box img {
   height: 50px; }
 
-#next-trip-info img {
-  height: 50px; }
+#next-trip {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  justify-content: space-around;
+  background-color: #ED6A5A; }
+  #next-trip #next-trip-info ul {
+    list-style: none; }
+  #next-trip #next-trip-info img {
+    height: 50px; }
+  #next-trip #next-trip-schedule ul {
+    list-style: none; }
+
+#schedules {
+  display: flex;
+  flex-direction: row;
+  margin: 1.5rem;
+  justify-content: flex-start;
+  flex-wrap: wrap; }
+  #schedules ul {
+    min-width: 20vw;
+    max-width: 30vw;
+    list-style: none;
+    background-color: #5CA4A9;
+    padding: 1.5rem 1rem;
+    margin: 0.5rem; }

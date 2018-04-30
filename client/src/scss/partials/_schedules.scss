@@ -1,0 +1,42 @@
+@import "_global_variables";
+
+#next-trip {
+  display: flex;
+  flex-direction: row;
+  padding: $small-gap;
+  justify-content: space-around;
+  background-color: $accent-colour;
+
+
+  #next-trip-info {
+    ul {
+      list-style: none;
+    }
+    img {
+      height: 50px;
+    }
+  }
+
+  #next-trip-schedule {
+    ul {
+      list-style: none;
+    }
+  }
+}
+
+#schedules {
+  display: flex;
+  flex-direction: row;
+  margin: $medium-gap;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  ul {
+    min-width: 20vw;
+    max-width: 30vw;
+    list-style: none;
+    background-color: $primary-colour;
+    padding: $medium-gap $small-gap;
+    margin: 0.5rem;
+  }
+}
