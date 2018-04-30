@@ -33,8 +33,10 @@ h1 {
       font-family: "Roboto", sans-serif;
       border: 1px solid #9BC1BC;
       align-self: center;
-      font-size: 1rem;
-      height: 2rem; }
+      font-size: 1rem; }
     #list-wrapper .country-list ul {
       list-style: none;
       margin: 2rem; }
+
+#info-box img {
+  height: 50px; }
