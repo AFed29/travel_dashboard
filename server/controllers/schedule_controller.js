@@ -5,7 +5,10 @@ const createScheduleRouter = function(dbConnection){
   const scheduleCollection = dbConnection.collection('schedule_collection');
 
   scheduleRouter.get('/', function(req, res){
-    scheduleCollection.find().toArray(function(err, schedules){
+    let today = new Date();
+    today.setHours(0, 0, 0);
+    today = today.toJSON();
+    scheduleCollection.find({"endDate": {$gte:today}}).toArray(function(err, schedules){
       if(err){
         console.error(err);
         res.status(500);
@@ -16,7 +19,6 @@ const createScheduleRouter = function(dbConnection){
       res.json(sortedSchedules);
     });
   });
-
 
   scheduleRouter.post('/', function(req, res){
     const newSchedule = req.body;

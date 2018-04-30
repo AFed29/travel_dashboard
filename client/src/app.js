@@ -52,18 +52,18 @@ const appStart = function() {
   });
 
   scheduleRequest.get((schedules) => {
-    const nextTrip = new Schedule(schedules.shift());
-    nextTrip.getCountryInfo(() => {
-      scheduleView.renderNextTrip(nextTrip);
-    });
-    schedules.forEach((schedule) => {
-      const newSchedule = new Schedule(schedule);
-      newSchedule.getCountryInfo(() =>{
-      scheduleView.renderOne(newSchedule)
-    });
-
-
-    });
+    if (schedules.length) {
+      const nextTrip = new Schedule(schedules.shift());
+      nextTrip.getCountryInfo(() => {
+        scheduleView.renderNextTrip(nextTrip);
+      });
+      schedules.forEach((schedule) => {
+        const newSchedule = new Schedule(schedule);
+        newSchedule.getCountryInfo(() =>{
+          scheduleView.renderOne(newSchedule)
+        });
+      });
+    }
   });
 
   visitedSelect.addEventListener('change', (event) => {
