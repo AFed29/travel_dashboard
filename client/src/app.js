@@ -23,6 +23,7 @@ const appStart = function() {
   const visitedSelect = document.querySelector('#visited-select');
   const toVisitSelect = document.querySelector('#to-visit-select');
   const mapContainer = document.querySelector('#map-wrapper');
+  const scheduleCountrySelect = document.querySelector('#scheduleCountry');
   const codeClan = {lat: 55.946962, lng: -3.201958};
   const mainMap = new MapWrapper(mapContainer, codeClan, 3);
 
@@ -74,6 +75,7 @@ const appStart = function() {
         mainMap.addToVisitMarker(country.latlng, country);
         toVisitView.renderOne(country);
         countries.toVisitCountries.push(country);
+        scheduleView.renderOption(scheduleCountrySelect, country);
       });
     }
   });

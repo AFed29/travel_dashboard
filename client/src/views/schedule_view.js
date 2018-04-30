@@ -19,12 +19,12 @@ ScheduleView.prototype.renderSelect = function (toVisitCountriesArray) {
   const countrySelect = document.querySelector('#scheduleCountry');
 
   toVisitCountriesArray.forEach(country => {
-    renderOption(countrySelect, country);
+    this.renderOption(countrySelect, country);
   });
 
 };
 
-const renderOption = function(parentSelect, country) {
+ScheduleView.prototype.renderOption = function(parentSelect, country) {
   const option = document.createElement('option');
   option.textContent = country.name;
   option.value = country._id;
