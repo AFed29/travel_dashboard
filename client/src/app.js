@@ -43,19 +43,16 @@ const appStart = function() {
 
   scheduleRequest.get((schedules) => {
     const allSchedules = [];
+
     schedules.forEach((schedule) => {
-      console.log(schedule);
       const newSchedule = new Schedule(schedule);
       newSchedule.getCountryInfo(() =>{
-        console.log(newSchedule);
       scheduleView.renderOne(newSchedule)
     });
-      allSchedules.push(newSchedule);
-      console.log(newSchedule);
-    })
-    // scheduleView.renderAll(allSchedules);
 
-  })
+      allSchedules.push(newSchedule);
+    });
+  });
 
   visitedSelect.addEventListener('change', (event) => {
     const selectedCountry = countries.findByAlpha3Code(event.target.value);
@@ -83,7 +80,6 @@ const appStart = function() {
 const createScheduleRequestComplete = function(schedule) {
   const newSchedule = new Schedule(schedule);
   newSchedule.getCountryInfo(() => {
-    console.log('got country info', newSchedule);
     scheduleView.renderOne(newSchedule);
   })
 }
@@ -93,12 +89,10 @@ const onScheduleFormSubmit = function(event) {
   console.log('Form submitted');
 
   const countryID = event.target.scheduleCountry.value;
-  console.dir(event.target.scheduleCountry.value);
   const startDate = event.target.startDate.value;
   const endDate = event.target.endDate.value;
 
   const newSchedule = new Schedule({countryID: countryID, startDate: startDate, endDate: endDate});
-  console.log('new schedule:', newSchedule);
   scheduleRequest.post(newSchedule, createScheduleRequestComplete);
 }
 
