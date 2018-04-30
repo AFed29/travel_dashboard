@@ -1,4 +1,7 @@
 const Helpers = require('../helpers/format_helpers.js');
+const InfoView = require('./info_view.js');
+
+const infoView = new InfoView();
 
 const ScheduleView = function () {
 }
@@ -10,9 +13,14 @@ ScheduleView.prototype.renderAll = function (scheduleArray) {
   })
 };
 
+ScheduleView.prototype.renderNextTrip = function (schedule) {
+  const scheduleContainer = document.querySelector('#next-trip-schedule');
+  const infoContainer = document.querySelector('#next-trip-info');
+  infoView.renderInfoBox(infoContainer, schedule.country);
+  renderSingleSchedule(scheduleContainer, schedule);
+};
 
 ScheduleView.prototype.renderOne = function (schedule) {
-console.log('Got to render one');
   const scheduleContainer = document.querySelector('#schedules');
   renderSingleSchedule(scheduleContainer, schedule);
 };
