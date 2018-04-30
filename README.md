@@ -14,4 +14,4 @@ Travel enthusiasts want to be able to track the countries they have visited and 
 
 
 
-A project made in week 14 of [CodeClan] (codeclan.com) by Alex, David, Graham and Kate.
+A project made in week 14 of [CodeClan](http://codeclan.com) by Alex, David, Graham and Kate.
