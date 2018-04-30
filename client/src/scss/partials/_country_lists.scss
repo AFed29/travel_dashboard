@@ -17,6 +17,7 @@
     h2 {
       text-align: center;
       font-weight: normal;
+      display: inline;
     }
 
     select {
@@ -30,5 +31,16 @@
       list-style: none;
       margin: $large-gap;
     }
+
+    img {
+      display: inline;
+      align: right;
+      width: 35px;
+      height: 35px;
+    }
+
+
   }
+
+
 }

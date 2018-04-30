@@ -10,6 +10,7 @@ const MapWrapper = function(container, center, zoom) {
 
   this.toVisitIcon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
   this.visitedIcon = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+  
 }
 
 MapWrapper.prototype.addVisitedMarker = function (coordinates) {

@@ -33,7 +33,16 @@ const appStart = function() {
     countries.visitedCountries = visitedCountries;
     visitedView.renderAll(visitedCountries);
     mainMap.populateAllVisitedMarkers(visitedCountries);
+
   });
+
+  const visitedIcon = document.querySelector('#visited-marker');
+  visitedIcon.src = mainMap.visitedIcon;
+
+  const toVisitIcon = document.querySelector('#to-visit-marker');
+  toVisitIcon.src = mainMap.toVisitIcon;
+
+
 
   toVisitRequest.get((toVisitCountries) => {
     countries.toVisitCountries = toVisitCountries;

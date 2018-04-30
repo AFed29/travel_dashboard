@@ -28,7 +28,8 @@ h1 {
     flex-wrap: nowrap; }
     #list-wrapper .country-list h2 {
       text-align: center;
-      font-weight: normal; }
+      font-weight: normal;
+      display: inline; }
     #list-wrapper .country-list select {
       font-family: "Roboto", sans-serif;
       border: 1px solid #9BC1BC;
@@ -37,6 +38,11 @@ h1 {
     #list-wrapper .country-list ul {
       list-style: none;
       margin: 2rem; }
+    #list-wrapper .country-list img {
+      display: inline;
+      align: right;
+      width: 35px;
+      height: 35px; }
 
 #info-box img {
   height: 50px; }
