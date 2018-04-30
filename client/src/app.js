@@ -22,12 +22,16 @@ const scheduleRequest = new Request('http://localhost:3000/schedule/');
 const appStart = function() {
   const visitedSelect = document.querySelector('#visited-select');
   const toVisitSelect = document.querySelector('#to-visit-select');
+
   const mapContainer = document.querySelector('#map-wrapper');
   const scheduleCountrySelect = document.querySelector('#scheduleCountry');
   const codeClan = {lat: 55.946962, lng: -3.201958};
   const mainMap = new MapWrapper(mapContainer, codeClan, 3);
 
-  countries.getData(countriesView.renderSelects);
+  countries.getData((countriesArray)=>{
+    countriesView.renderSelect(countriesArray, visitedSelect);
+    countriesView.renderSelect(countriesArray, toVisitSelect);
+  });
 
   visitedRequest.get((visitedCountries) => {
     countries.visitedCountries = visitedCountries;
