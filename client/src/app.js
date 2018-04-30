@@ -55,7 +55,7 @@ const appStart = function() {
   });
 
   visitedSelect.addEventListener('change', (event) => {
-    const selectedCountry = countries.findByAlpha3Code(event.target.value);
+    const selectedCountry = countries.allCountries[event.target.value];
     if (!countries.findIfCountryAlreadyInVisited(selectedCountry)) {
       const newVistedCountry = new Visited(selectedCountry);
       visitedRequest.post(newVistedCountry, (country) => {
@@ -67,7 +67,7 @@ const appStart = function() {
   });
 
   toVisitSelect.addEventListener('change', (event) => {
-    const selectedCountry = countries.findByAlpha3Code(event.target.value);
+    const selectedCountry = countries.allCountries[event.target.value];
     if (!countries.findIfCountryAlreadyInToVisit(selectedCountry)) {
       const newToVisitCountry = new ToVisit(selectedCountry);
       toVisitRequest.post(newToVisitCountry,  (country) => {
