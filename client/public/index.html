@@ -12,6 +12,15 @@
   </head>
   <body>
     <h1>Travel Dashboard</h1>
+    <form>
+      <label for="country">Country</label>
+      <select id="scheduleCountry" name="scheduleCountry"></select>
+      <label for="startDate">Start Date</label>
+      <input type="date" name="startDate">
+      <label for="endDate">End Date</label>
+      <input type="date" name="endDate">
+      <button type="submit" id="createScheduleButton">Create Schedule</button>
+    </form>
     <section id="list-wrapper">
       <div id="visited-countries" class="country-list">
         <h2>Where I have been...</h2>
@@ -30,7 +39,9 @@
       </div>
     </section>
 
-    <section id="map-wrapper">
-    </section>
+    <section id="map-wrapper"></section>
+    <section id="schedules"></section>
+    <section id="info-box"> </section>
+
   </body>
 </html>
