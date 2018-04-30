@@ -12,7 +12,8 @@ const createScheduleRouter = function(dbConnection){
         res.send();
         return;
       };
-      res.json(schedules);
+      const sortedSchedules = sortByDate(schedules);
+      res.json(sortedSchedules);
     });
   });
 
@@ -49,5 +50,20 @@ const createScheduleRouter = function(dbConnection){
   return scheduleRouter;
 
 
+}
+
+
+const sortByDate = function(scheduleArray) {
+  return scheduleArray.sort(function(schedulea, scheduleb) {
+    if( schedulea.startDate < scheduleb.startDate) {
+      return -1;
+    }
+    else if(schedulea.startDate > scheduleb.startDate) {
+      return 1;
+    }
+    else {
+      return 0;
+    }
+  });
 }
 module.exports = createScheduleRouter;

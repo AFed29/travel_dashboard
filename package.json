@@ -7,7 +7,7 @@
     "build": "webpack -w",
     "test": "mocha specs --reporter nyan",
     "server:dev": "nodemon ./server/server.js",
-    "sass": "node-sass client/src/scss/styles.scss client/public/styles.css",
+    "sass": "node-sass --watch client/src/scss/styles.scss client/public/styles.css",
     "start": "node ./server/server.js"
   },
   "keywords": [],

@@ -52,15 +52,17 @@ const appStart = function() {
   });
 
   scheduleRequest.get((schedules) => {
-    const allSchedules = [];
-
+    const nextTrip = new Schedule(schedules.shift());
+    nextTrip.getCountryInfo(() => {
+      scheduleView.renderNextTrip(nextTrip);
+    });
     schedules.forEach((schedule) => {
       const newSchedule = new Schedule(schedule);
       newSchedule.getCountryInfo(() =>{
       scheduleView.renderOne(newSchedule)
     });
 
-      allSchedules.push(newSchedule);
+
     });
   });
 
@@ -110,6 +112,7 @@ const onScheduleFormSubmit = function(event) {
   const endDate = event.target.endDate.value;
 
   const newSchedule = new Schedule({countryID: countryID, startDate: startDate, endDate: endDate});
+  console.log('new schedule:', newSchedule);
   scheduleRequest.post(newSchedule, createScheduleRequestComplete);
 }
 

@@ -1,6 +1,6 @@
-const ToVisitView = require('../views/to_visit_view.js')
+const InfoView = require('../views/info_view.js')
 
-const toVisitView = new ToVisitView();
+const infoView = new InfoView();
 
 const MapWrapper = function(container, center, zoom) {
   this.googleMap = new google.maps.Map(container, {center: center, zoom: zoom});
@@ -22,7 +22,8 @@ MapWrapper.prototype.addToVisitMarker = function (coordinates, country) {
   const marker = new google.maps.Marker({map: this.googleMap, position: coordinates, icon: this.toVisitIcon});
 
   marker.addListener('click', function() {
-    toVisitView.renderInfoBox(country);
+    const infoBox = document.querySelector('#info-box');
+    infoView.renderInfoBox(infoBox, country);
   });
 
     this.toVisitMarkers.push(marker);

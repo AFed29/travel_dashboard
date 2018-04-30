@@ -1,3 +1,8 @@
+const Helpers = require('../helpers/format_helpers.js');
+const InfoView = require('./info_view.js');
+
+const infoView = new InfoView();
+
 const ScheduleView = function () {
 }
 
@@ -8,9 +13,14 @@ ScheduleView.prototype.renderAll = function (scheduleArray) {
   })
 };
 
+ScheduleView.prototype.renderNextTrip = function (schedule) {
+  const scheduleContainer = document.querySelector('#next-trip-schedule');
+  const infoContainer = document.querySelector('#next-trip-info');
+  infoView.renderInfoBox(infoContainer, schedule.country);
+  renderSingleSchedule(scheduleContainer, schedule);
+};
 
 ScheduleView.prototype.renderOne = function (schedule) {
-console.log('Got to render one');
   const scheduleContainer = document.querySelector('#schedules');
   renderSingleSchedule(scheduleContainer, schedule);
 };
@@ -36,9 +46,9 @@ const renderSingleSchedule = function(parentContainer, schedule){
   const country = document.createElement('li');
   country.textContent = `Destination: ${schedule.country.name}`
   const startDate = document.createElement('li');
-  startDate.textContent = `Start date: ${schedule.startDate}`
+  startDate.textContent = `Start date: ${Helpers.prettyDate(schedule.startDate)}`
   const endDate = document.createElement('li');
-  endDate.textContent = `End date: ${schedule.endDate}`
+  endDate.textContent = `End date: ${Helpers.prettyDate(schedule.endDate)}`
   ul.appendChild(country);
   ul.appendChild(startDate);
   ul.appendChild(endDate);

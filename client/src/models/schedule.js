@@ -2,8 +2,8 @@ const Request = require('../helpers/request.js');
 
 
 const Schedule = function(schedule){
-  this.startDate = schedule.startDate;
-  this.endDate = schedule.endDate;
+  this.startDate = new Date(schedule.startDate);
+  this.endDate = new Date(schedule.endDate);
   this.countryID = schedule.countryID;
 }
 
