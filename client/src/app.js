@@ -105,15 +105,20 @@ const createScheduleRequestComplete = function(schedule) {
 
 const onScheduleFormSubmit = function(event) {
   event.preventDefault();
-  console.log('Form submitted');
 
   const countryID = event.target.scheduleCountry.value;
   const startDate = event.target.startDate.value;
   const endDate = event.target.endDate.value;
 
-  const newSchedule = new Schedule({countryID: countryID, startDate: startDate, endDate: endDate});
-  console.log('new schedule:', newSchedule);
-  scheduleRequest.post(newSchedule, createScheduleRequestComplete);
+  let today = new Date();
+  today.setHours(0, 0, 0);
+  if (Date.parse(endDate) >= today) {
+    const newSchedule = new Schedule({countryID: countryID, startDate: startDate, endDate: endDate});
+    console.log('new schedule:', newSchedule);
+    scheduleRequest.post(newSchedule, createScheduleRequestComplete);
+  } else {
+    console.log("Enter a future date");
+  }
 }
 
 
