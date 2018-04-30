@@ -101,6 +101,7 @@ const onScheduleFormSubmit = function(event) {
   const endDate = event.target.endDate.value;
 
   const newSchedule = new Schedule({countryID: countryID, startDate: startDate, endDate: endDate});
+  console.log('new schedule:', newSchedule);
   scheduleRequest.post(newSchedule, createScheduleRequestComplete);
 }
 

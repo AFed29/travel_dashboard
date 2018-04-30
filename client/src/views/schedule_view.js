@@ -1,3 +1,5 @@
+const Helpers = require('../helpers/format_helpers.js');
+
 const ScheduleView = function () {
 }
 
@@ -36,9 +38,9 @@ const renderSingleSchedule = function(parentContainer, schedule){
   const country = document.createElement('li');
   country.textContent = `Destination: ${schedule.country.name}`
   const startDate = document.createElement('li');
-  startDate.textContent = `Start date: ${schedule.startDate}`
+  startDate.textContent = `Start date: ${Helpers.prettyDate(schedule.startDate)}`
   const endDate = document.createElement('li');
-  endDate.textContent = `End date: ${schedule.endDate}`
+  endDate.textContent = `End date: ${Helpers.prettyDate(schedule.endDate)}`
   ul.appendChild(country);
   ul.appendChild(startDate);
   ul.appendChild(endDate);
