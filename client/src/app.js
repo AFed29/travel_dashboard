@@ -59,9 +59,8 @@ const appStart = function() {
       });
       schedules.forEach((schedule) => {
         const newSchedule = new Schedule(schedule);
-        newSchedule.getCountryInfo(() =>{
-          scheduleView.renderOne(newSchedule)
-        });
+        console.log(newSchedule);
+        scheduleView.renderOne(newSchedule);
       });
     }
   });
@@ -118,7 +117,9 @@ const onScheduleFormSubmit = function(event) {
     errorMessage.textContent = '';
     const newSchedule = new Schedule({countryID: countryID, startDate: startDate, endDate: endDate});
     console.log('new schedule:', newSchedule);
-    scheduleRequest.post(newSchedule, createScheduleRequestComplete);
+    newSchedule.getCountryInfo(()=> {
+      scheduleRequest.post(newSchedule, createScheduleRequestComplete);
+    })
   }
   else {
     errorMessage.textContent = 'Trips must end after today';

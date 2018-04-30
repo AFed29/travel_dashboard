@@ -5,6 +5,7 @@ const Schedule = function(schedule){
   this.startDate = new Date(schedule.startDate);
   this.endDate = new Date(schedule.endDate);
   this.countryID = schedule.countryID;
+  this.country = schedule.country;
 }
 
 Schedule.prototype.getCountryInfo = function (onComplete) {
