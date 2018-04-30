@@ -109,15 +109,20 @@ const onScheduleFormSubmit = function(event) {
   const countryID = event.target.scheduleCountry.value;
   const startDate = event.target.startDate.value;
   const endDate = event.target.endDate.value;
+  const errorMessage = document.querySelector('#input-error');
 
   let today = new Date();
   today.setHours(0, 0, 0);
   if (Date.parse(endDate) >= today) {
+    errorMessage.classList.add('hidden');
+    errorMessage.textContent = '';
     const newSchedule = new Schedule({countryID: countryID, startDate: startDate, endDate: endDate});
     console.log('new schedule:', newSchedule);
     scheduleRequest.post(newSchedule, createScheduleRequestComplete);
-  } else {
-    console.log("Enter a future date");
+  }
+  else {
+    errorMessage.textContent = 'Trips must end after today';
+    errorMessage.classList.remove('hidden');
   }
 }
 
