@@ -19,4 +19,16 @@ Countries.prototype.findByAlpha3Code = function (code) {
   return this.allCountries.find(country => country.alpha3Code === code);
 };
 
+Countries.prototype.findIfCountryAlreadyInVisited = function (inputCountry) {
+  return this.visitedCountries.some((country) => {
+    return country.name === inputCountry.name;
+  });
+};
+
+Countries.prototype.findIfCountryAlreadyInToVisit = function (inputCountry) {
+  return this.toVisitCountries.some((country) => {
+    return country.name === inputCountry.name;
+  });
+};
+
 module.exports = Countries;

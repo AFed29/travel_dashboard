@@ -1,3 +1,7 @@
+const ToVisitView = require('../views/to_visit_view.js')
+
+const toVisitView = new ToVisitView();
+
 const MapWrapper = function(container, center, zoom) {
   this.googleMap = new google.maps.Map(container, {center: center, zoom: zoom});
 
@@ -13,9 +17,14 @@ MapWrapper.prototype.addVisitedMarker = function (coordinates) {
   this.visitedMarkers.push(marker);
 };
 
-MapWrapper.prototype.addToVisitMarker = function (coordinates) {
+MapWrapper.prototype.addToVisitMarker = function (coordinates, country) {
   const marker = new google.maps.Marker({map: this.googleMap, position: coordinates, icon: this.toVisitIcon});
-  this.toVisitMarkers.push(marker);
+
+  marker.addListener('click', function() {
+    toVisitView.renderInfoBox(country);
+  });
+
+    this.toVisitMarkers.push(marker);
 };
 
 MapWrapper.prototype.populateAllVisitedMarkers = function (visitedCountries) {
@@ -23,7 +32,7 @@ MapWrapper.prototype.populateAllVisitedMarkers = function (visitedCountries) {
 };
 
 MapWrapper.prototype.populateAllToVisitMarkers = function (toVisitCountries) {
-  toVisitCountries.forEach(country => this.addToVisitMarker(country.latlng));
+  toVisitCountries.forEach(country => this.addToVisitMarker(country.latlng, country));
 };
 
 module.exports = MapWrapper;
