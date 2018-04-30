@@ -12,6 +12,6 @@ Schedule.prototype.getCountryInfo = function (onComplete) {
    toVisitCountryRequest.get((toVisitCountry) => {
      this.country = toVisitCountry;
      onComplete();
-   })
+   });
 };
 module.exports = Schedule;
