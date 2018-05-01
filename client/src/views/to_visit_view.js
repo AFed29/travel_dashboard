@@ -4,8 +4,9 @@ const ToVisitView = function () {
 ToVisitView.prototype.renderAll = function (toVisitCountryArray, request) {
   const toVisitList = document.querySelector('#to-visit-list');
   toVisitCountryArray.forEach(country => {
-    renderListItem(toVisitList, country.name);
-    renderDeleteButton(toVisitList, country._id, request);
+    const li = renderListItem(toVisitList, country);
+
+    renderDeleteButton(li, country._id, request);
   });
 };
 
@@ -14,10 +15,12 @@ ToVisitView.prototype.renderOne = function (country) {
   renderListItem(toVisitList, country.name);
 };
 
-const renderListItem = function (parentList, data) {
+const renderListItem = function (parentList, country) {
   const li = document.createElement('li');
-  li.textContent = data;
+  li.id = country._id;
+  li.textContent = country.name;
   parentList.appendChild(li);
+  return li;
 };
 
 const renderDeleteButton = function (parentList, id, request) {
@@ -25,7 +28,10 @@ const renderDeleteButton = function (parentList, id, request) {
   button.textContent = 'Delete';
   button.addEventListener('click', function (evt) {
     request.delete(id, function () {
-      console.log('Country Deleted');
+      const listItem = document.getElementById(id);
+      console.log(listItem);
+      listItem.parentNode.removeChild(listItem);
+
     });
   });
 
