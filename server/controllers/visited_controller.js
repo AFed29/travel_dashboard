@@ -1,6 +1,6 @@
 const express = require('express');
 const visitedRouter = new express.Router();
-
+const ObjectID = require('mongodb').ObjectID;
 
 const createVisitedRouter = function(dbConnection) {
   const visitedCountriesCollection = dbConnection.collection('visited_countries');
@@ -43,6 +43,23 @@ visitedRouter.delete('/', function(req, res){
       return;
     };
     console.log('Everything has gone');
+    res.status(204);
+    res.send();
+  });
+});
+
+visitedRouter.delete('/:id', function(req, res){
+  const id = req.params.id;
+  const objectID = ObjectID(id);
+
+  visitedCountriesCollection.deleteOne({_id: objectID}, function(err){
+    if(err){
+      console.error(err);
+      res.status(500);
+      res.send();
+      return;
+    };
+    console.log('One has been deleted');
     res.status(204);
     res.send();
   });

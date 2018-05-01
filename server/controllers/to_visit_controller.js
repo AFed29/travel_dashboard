@@ -64,6 +64,23 @@ const createToVisitRouter = function(dbConnection) {
     });
   });
 
+  toVisitRouter.delete('/:id', function(req, res){
+    const id = req.params.id;
+    const objectID = ObjectID(id);
+
+    toVisitCountriesCollection.deleteOne({_id: objectID}, function(err){
+      if(err){
+        console.error(err);
+        res.status(500);
+        res.send();
+        return;
+      };
+      console.log('One has been deleted');
+      res.status(204);
+      res.send();
+    });
+  });
+
   return toVisitRouter;
 };
 
