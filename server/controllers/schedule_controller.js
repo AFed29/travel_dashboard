@@ -22,7 +22,7 @@ const createScheduleRouter = function(dbConnection){
     });
   });
 
-  scheduleRouter.get('/:id', function(req, res){
+  scheduleRouter.get('/object/:id', function(req, res){
     const id = req.params.id;
     const objectID = ObjectID(id);
     scheduleCollection.findOne({_id: objectID}, function(err, schedule){
@@ -32,8 +32,12 @@ const createScheduleRouter = function(dbConnection){
         res.send();
         return;
       };
-      res.sendFile(path.join(__dirname,'../../client/public', 'schedule.html'));
+      res.json(schedule);
     });
+  });
+
+  scheduleRouter.get('/:id', function(req, res){
+      res.sendFile(path.join(__dirname,'../../client/public', 'schedule.html'));
   });
 
   scheduleRouter.post('/', function(req, res){

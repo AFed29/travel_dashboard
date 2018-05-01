@@ -20,9 +20,8 @@ ScheduleView.prototype.renderNextTrip = function (schedule) {
   renderSingleSchedule(scheduleContainer, schedule);
 };
 
-ScheduleView.prototype.renderOne = function (schedule) {
-  const scheduleContainer = document.querySelector('#schedules');
-  renderSingleSchedule(scheduleContainer, schedule);
+ScheduleView.prototype.renderOne = function (schedule, container) {
+  renderSingleSchedule(container, schedule);
 };
 
 ScheduleView.prototype.renderSelect = function (toVisitCountriesArray) {
