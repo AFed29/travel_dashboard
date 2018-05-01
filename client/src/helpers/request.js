@@ -50,4 +50,16 @@ Request.prototype.put = function (dataToSend, onComplete) {
 };
 
 
+Request.prototype.delete = function (id, onComplete) {
+  const request = new XMLHttpRequest();
+  request.open('DELETE', `${this.url}${id}`);
+
+  request.addEventListener('load', function() {
+    if(request.status !== 204) return;
+
+    onComplete();
+  });
+  request.send();
+};
+
 module.exports = Request;

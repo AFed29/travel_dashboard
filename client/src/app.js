@@ -35,7 +35,6 @@ const appStart = function() {
 
   visitedRequest.get((visitedCountries) => {
     countries.visitedCountries = visitedCountries;
-    visitedView.renderAll(visitedCountries);
     mainMap.populateAllVisitedMarkers(visitedCountries);
 
   });
@@ -50,7 +49,6 @@ const appStart = function() {
 
   toVisitRequest.get((toVisitCountries) => {
     countries.toVisitCountries = toVisitCountries;
-    toVisitView.renderAll(toVisitCountries);
     mainMap.populateAllToVisitMarkers(toVisitCountries);
     scheduleView.renderSelect(toVisitCountries);
   });
@@ -76,7 +74,7 @@ const appStart = function() {
       const newVistedCountry = new Visited(selectedCountry);
       visitedRequest.post(newVistedCountry, (country) => {
         mainMap.addVisitedMarker(country.latlng);
-        visitedView.renderOne(country);
+        // visitedView.renderOne(country);
         countries.visitedCountries.push(country);
       });
     }
@@ -88,7 +86,7 @@ const appStart = function() {
       const newToVisitCountry = new ToVisit(selectedCountry);
       toVisitRequest.post(newToVisitCountry,  (country) => {
         mainMap.addToVisitMarker(country.latlng, country);
-        toVisitView.renderOne(country);
+        // toVisitView.renderOne(country);
         countries.toVisitCountries.push(country);
         scheduleView.renderOption(scheduleCountrySelect, country);
       });
