@@ -73,7 +73,7 @@ const appStart = function() {
       const newVistedCountry = new Visited(selectedCountry);
       visitedRequest.post(newVistedCountry, (country) => {
         mainMap.addVisitedMarker(country.latlng);
-        visitedView.renderOne(country);
+        // visitedView.renderOne(country);
         countries.visitedCountries.push(country);
       });
     }
@@ -85,7 +85,7 @@ const appStart = function() {
       const newToVisitCountry = new ToVisit(selectedCountry);
       toVisitRequest.post(newToVisitCountry,  (country) => {
         mainMap.addToVisitMarker(country.latlng, country);
-        toVisitView.renderOne(country);
+        // toVisitView.renderOne(country);
         countries.toVisitCountries.push(country);
         scheduleView.renderOption(scheduleCountrySelect, country);
       });
