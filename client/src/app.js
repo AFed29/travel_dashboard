@@ -62,7 +62,8 @@ const appStart = function() {
       schedules.forEach((schedule) => {
         const newSchedule = new Schedule(schedule);
         console.log(newSchedule);
-        scheduleView.renderOne(newSchedule);
+        const scheduleContainer = document.querySelector('#schedules');
+        scheduleView.renderOne(newSchedule, scheduleContainer);
       });
     }
   });
@@ -102,7 +103,8 @@ const createScheduleRequestComplete = function(schedule) {
   document.querySelector('form').reset();
 
   newSchedule.getCountryInfo(() => {
-    scheduleView.renderOne(newSchedule);
+    const scheduleContainer = document.querySelector('#schedules');
+    scheduleView.renderOne(newSchedule, scheduleContainer);
   })
 }
 
