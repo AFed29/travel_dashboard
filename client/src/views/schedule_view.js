@@ -49,6 +49,7 @@ ScheduleView.prototype.renderSchedulePage = function (schedule) {
   endDate.textContent = Helpers.prettyDate(schedule.endDate);
   const note = document.querySelector('#note');
   const form = document.querySelector('form');
+  const editNoteButton = document.querySelector('#editNote');
   if (schedule.note) {
     note.textContent = schedule.note;
     form.noteInput.value = schedule.note
@@ -56,6 +57,7 @@ ScheduleView.prototype.renderSchedulePage = function (schedule) {
   }
   else {
     note.classList.add("hidden");
+    editNoteButton.classList.add("hidden");
   }
 };
 

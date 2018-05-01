@@ -18,6 +18,11 @@ const pageLoad = function(){
   scheduleRequest.get(renderPage);
   const noteForm = document.querySelector('form');
   noteForm.addEventListener('submit', onNoteFormSubmit);
+  const form = document.querySelector('form');
+  const editNoteButton = document.querySelector('#editNote');
+  editNoteButton.addEventListener('click', ()=> {
+    form.classList.remove('hidden');
+  });
 };
 
 const onNoteFormSubmit = function(event) {
@@ -27,7 +32,10 @@ const onNoteFormSubmit = function(event) {
   newSchedule.note = noteText;
   updateRequest.put(newSchedule, () => {
     const noteForm = document.querySelector('form');
-    noteForm.reset();
+    noteForm.classList.add('hidden');
+    const note = document.querySelector('#note');
+    note.textContent = noteText;
+
   });
 }
 
