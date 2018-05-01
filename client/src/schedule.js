@@ -26,7 +26,8 @@ const onNoteFormSubmit = function(event) {
   const updateRequest = new Request(`http://localhost:3000/schedule/${id}`);
   newSchedule.note = noteText;
   updateRequest.put(newSchedule, () => {
-    console.log('saved schedule with note');
+    const noteForm = document.querySelector('form');
+    noteForm.reset();
   });
 }
 
