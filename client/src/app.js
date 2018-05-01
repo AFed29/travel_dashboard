@@ -116,7 +116,7 @@ const onScheduleFormSubmit = function(event) {
 
   let today = new Date();
   today.setHours(0, 0, 0);
-  if (Date.parse(endDate) >= today) {
+  if (Date.parse(endDate) >= today && Date.parse(endDate) > Date.parse(startDate)) {
     errorMessage.classList.add('hidden');
     errorMessage.textContent = '';
     const newSchedule = new Schedule({countryID: countryID, startDate: startDate, endDate: endDate});
