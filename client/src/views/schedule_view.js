@@ -50,10 +50,11 @@ ScheduleView.prototype.renderSchedulePage = function (schedule) {
   const note = document.querySelector('#note');
   const form = document.querySelector('form');
   const editNoteButton = document.querySelector('#editNote');
+
   if (schedule.note) {
     note.textContent = schedule.note;
-    form.noteInput.value = schedule.note
-    form.classList.add("hidden")
+    form.noteInput.value = schedule.note;
+    form.classList.add("hidden");
   }
   else {
     note.classList.add("hidden");
