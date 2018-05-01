@@ -56,7 +56,7 @@ const createScheduleRouter = function(dbConnection){
 
 
 const sortByDate = function(scheduleArray) {
-  return scheduleArray.sort(function(schedulea, scheduleb) {
+  return scheduleArray.sort((schedulea, scheduleb) => {
     if( schedulea.startDate < scheduleb.startDate) {
       return -1;
     }
