@@ -35,7 +35,6 @@ const appStart = function() {
 
   visitedRequest.get((visitedCountries) => {
     countries.visitedCountries = visitedCountries;
-    visitedView.renderAll(visitedCountries);
     mainMap.populateAllVisitedMarkers(visitedCountries);
 
   });
@@ -50,7 +49,6 @@ const appStart = function() {
 
   toVisitRequest.get((toVisitCountries) => {
     countries.toVisitCountries = toVisitCountries;
-    toVisitView.renderAll(toVisitCountries);
     mainMap.populateAllToVisitMarkers(toVisitCountries);
     scheduleView.renderSelect(toVisitCountries);
   });
