@@ -101,6 +101,8 @@ const appStart = function() {
 
 const createScheduleRequestComplete = function(schedule) {
   const newSchedule = new Schedule(schedule);
+  document.querySelector('form').reset();
+
   newSchedule.getCountryInfo(() => {
     scheduleView.renderOne(newSchedule);
   })
