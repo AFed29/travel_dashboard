@@ -20,9 +20,8 @@ ScheduleView.prototype.renderNextTrip = function (schedule) {
   renderSingleSchedule(scheduleContainer, schedule);
 };
 
-ScheduleView.prototype.renderOne = function (schedule) {
-  const scheduleContainer = document.querySelector('#schedules');
-  renderSingleSchedule(scheduleContainer, schedule);
+ScheduleView.prototype.renderOne = function (schedule, container) {
+  renderSingleSchedule(container, schedule);
 };
 
 ScheduleView.prototype.renderSelect = function (toVisitCountriesArray) {
@@ -31,7 +30,6 @@ ScheduleView.prototype.renderSelect = function (toVisitCountriesArray) {
   toVisitCountriesArray.forEach(country => {
     this.renderOption(countrySelect, country);
   });
-
 };
 
 ScheduleView.prototype.renderOption = function(parentSelect, country) {
@@ -39,6 +37,29 @@ ScheduleView.prototype.renderOption = function(parentSelect, country) {
   option.textContent = country.name;
   option.value = country._id;
   parentSelect.appendChild(option);
+};
+
+ScheduleView.prototype.renderSchedulePage = function (schedule) {
+  console.log('schedule', schedule);
+  const destination = document.querySelector('#destination');
+  destination.textContent = schedule.country.name;
+  const startDate = document.querySelector('#startDate');
+  startDate.textContent = Helpers.prettyDate(schedule.startDate);
+  const endDate = document.querySelector('#endDate');
+  endDate.textContent = Helpers.prettyDate(schedule.endDate);
+  const note = document.querySelector('#note');
+  const form = document.querySelector('form');
+  const editNoteButton = document.querySelector('#editNote');
+
+  if (schedule.note) {
+    note.textContent = schedule.note;
+    form.noteInput.value = schedule.note;
+    form.classList.add("hidden");
+  }
+  else {
+    note.classList.add("hidden");
+    editNoteButton.classList.add("hidden");
+  }
 };
 
 const renderSingleSchedule = function(parentContainer, schedule){
@@ -49,9 +70,13 @@ const renderSingleSchedule = function(parentContainer, schedule){
   startDate.textContent = `Start date: ${Helpers.prettyDate(schedule.startDate)}`
   const endDate = document.createElement('li');
   endDate.textContent = `End date: ${Helpers.prettyDate(schedule.endDate)}`
+  const scheduleLink = document.createElement('a');
+  scheduleLink.textContent = 'View schedule details';
+  scheduleLink.href = `HTTP://localhost:3000/schedule/${schedule.id}`;
   ul.appendChild(country);
   ul.appendChild(startDate);
   ul.appendChild(endDate);
+  ul.appendChild(scheduleLink);
   parentContainer.appendChild(ul);
 }
 
