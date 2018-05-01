@@ -10,10 +10,10 @@ const toVisitRequest = new Request('http://localhost:3000/tovisit/');
 
 const listStart = function(){
   toVisitRequest.get((toVisitCountries) => {
-    toVisitView.renderAll(toVisitCountries);
+    toVisitView.renderAll(toVisitCountries, toVisitRequest);
   });
   visitedRequest.get((visitedCountries) => {
-    visitedView.renderAll(visitedCountries);
+    visitedView.renderAll(visitedCountries, visitedRequest);
   });
 };
 
