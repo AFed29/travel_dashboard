@@ -7,6 +7,7 @@ const Schedule = function(schedule){
   this.countryID = schedule.countryID;
   this.country = schedule.country;
   this.id = schedule._id;
+  this.note = null;
 }
 
 Schedule.prototype.getCountryInfo = function (onComplete) {

@@ -55,6 +55,24 @@ const createScheduleRouter = function(dbConnection){
     });
   });
 
+  scheduleRouter.put('/:id', function(req, res) {
+    const updatedSchedule = req.body;
+    const id = req.params.id;
+
+    const objectID = ObjectID(id);
+
+    scheduleCollection.update({_id: objectID}, updatedSchedule, function(err, schedule) {
+      if(err){
+        console.error(err);
+        res.status(500);
+        res.send();
+        return;
+      };
+      res.status(204);
+      res.send();
+    });
+  });
+
   scheduleRouter.delete('/', function(req, res){
     scheduleCollection.deleteMany(function(err) {
       if(err){
