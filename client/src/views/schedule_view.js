@@ -49,9 +49,13 @@ const renderSingleSchedule = function(parentContainer, schedule){
   startDate.textContent = `Start date: ${Helpers.prettyDate(schedule.startDate)}`
   const endDate = document.createElement('li');
   endDate.textContent = `End date: ${Helpers.prettyDate(schedule.endDate)}`
+  const scheduleLink = document.createElement('a');
+  scheduleLink.textContent = 'Add a note';
+  scheduleLink.href = `HTTP://localhost:3000/schedule/${schedule.id}`;
   ul.appendChild(country);
   ul.appendChild(startDate);
   ul.appendChild(endDate);
+  ul.appendChild(scheduleLink);
   parentContainer.appendChild(ul);
 }
 

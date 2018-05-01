@@ -6,6 +6,7 @@ const Schedule = function(schedule){
   this.endDate = new Date(schedule.endDate);
   this.countryID = schedule.countryID;
   this.country = schedule.country;
+  this.id = schedule._id;
 }
 
 Schedule.prototype.getCountryInfo = function (onComplete) {
@@ -15,4 +16,6 @@ Schedule.prototype.getCountryInfo = function (onComplete) {
      onComplete();
    });
 };
+
+
 module.exports = Schedule;
