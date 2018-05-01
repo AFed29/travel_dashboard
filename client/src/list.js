@@ -9,14 +9,12 @@ const visitedRequest = new Request('http://localhost:3000/visited/');
 const toVisitRequest = new Request('http://localhost:3000/tovisit/');
 
 const listStart = function(){
-
   toVisitRequest.get((toVisitCountries) => {
     toVisitView.renderAll(toVisitCountries);
   });
-
   visitedRequest.get((visitedCountries) => {
     visitedView.renderAll(visitedCountries);
   });
-}
+};
 
 document.addEventListener('DOMContentLoaded', listStart);
