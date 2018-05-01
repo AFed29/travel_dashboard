@@ -10,7 +10,7 @@ const renderPage = function(schedule){
   newSchedule = new Schedule(schedule);
   const scheduleContainer = document.querySelector('#schedule');
   const scheduleView = new ScheduleView();
-  scheduleView.renderOne(newSchedule, scheduleContainer);
+  scheduleView.renderSchedulePage(newSchedule);
 };
 
 const pageLoad = function(){
