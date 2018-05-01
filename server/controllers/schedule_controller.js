@@ -1,5 +1,7 @@
 const express = require('express');
 const scheduleRouter = new express.Router();
+const ObjectID = require('mongodb').ObjectID;
+const path = require('path');
 
 const createScheduleRouter = function(dbConnection){
   const scheduleCollection = dbConnection.collection('schedule_collection');
@@ -17,6 +19,20 @@ const createScheduleRouter = function(dbConnection){
       };
       const sortedSchedules = sortByDate(schedules);
       res.json(sortedSchedules);
+    });
+  });
+
+  scheduleRouter.get('/:id', function(req, res){
+    const id = req.params.id;
+    const objectID = ObjectID(id);
+    scheduleCollection.findOne({_id: objectID}, function(err, schedule){
+      if(err){
+        console.error(err);
+        res.status(500);
+        res.send();
+        return;
+      };
+      res.sendFile(path.join(__dirname,'../../client/public', 'schedule.html'));
     });
   });
 
