@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script src="bundle.js"></script>
+    <script src="js/main_bundle.js"></script>
     <link rel="stylesheet" href="/styles.css">
 
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto" rel="stylesheet">
@@ -20,11 +20,13 @@
     </section>
     <form>
       <label for="country">Country</label>
-      <select id="scheduleCountry" name="scheduleCountry"></select>
+      <select id="scheduleCountry" name="scheduleCountry">
+        <option disabled selected>Choose a destintion</option>
+      </select>
       <label for="startDate">Start Date</label>
-      <input type="date" name="startDate">
+      <input id="startDateInput" type="date" name="startDate">
       <label for="endDate">End Date</label>
-      <input type="date" name="endDate">
+      <input id="endDateInput" type="date" name="endDate">
       <button type="submit" id="createScheduleButton">Create Schedule</button>
     </form>
     <div id="input-error" class="hidden"></div>
