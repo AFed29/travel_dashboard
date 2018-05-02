@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <script src="/js/schedule_bundle.js"></script>
-    <link rel="stylesheet" href="/styles.css">
-    <title>WanderList</title>
-  </head>
-  <body>
-    <header>
-      <div id="nav-title">
-        <h1>WanderList</h1>
-        <nav>
-          <ul>
-            <li><a href="/"> Home </a></li>
-            <li><a href="/lists"> Countries</a></li>
-            <li><a href="/#schedules"> Add a schedule</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div id="next-trip-schedule" class="hidden">
-      </div>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <script src="/js/schedule_bundle.js"></script>
+  <link rel="stylesheet" href="/styles.css">
+  <title>WanderList</title>
+</head>
+<body>
+  <header>
+    <div id="nav-title">
+      <h1>WanderList</h1>
+      <nav>
+        <ul>
+          <li><a href="/"> Home </a></li>
+          <li><a href="/lists"> Countries</a></li>
+          <li><a href="/#schedules"> Add a schedule</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="next-trip-schedule" class="hidden">
+    </div>
+  </header>
+  <div id="schedule-wrapper">
     <section id="schedule">
       <h2 id="destination"></h2>
-      <p id="startDate"></p>
-      <p id="endDate"></p>
+      <p id="date"></p>
       <p id="note"></p>
       <button id="editNote" type="button" name="button">Edit note</button>
     </section>
+    <section id="schedule-info-box"></section>
     <form>
       <h2>Note</h2>
       <textarea id="noteInput" cols="50" rows="10"></textarea>
       <input type="submit" name="" value="Add Note">
     </form>
-  </body>
+  </div>
+</body>
 </html>

@@ -10,7 +10,7 @@ const MapWrapper = function(container, center, zoom) {
 
   this.toVisitIcon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
   this.visitedIcon = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
-  
+
 }
 
 MapWrapper.prototype.addVisitedMarker = function (coordinates) {
@@ -21,10 +21,10 @@ MapWrapper.prototype.addVisitedMarker = function (coordinates) {
 MapWrapper.prototype.addToVisitMarker = function (coordinates, country) {
   const marker = new google.maps.Marker({map: this.googleMap, position: coordinates, icon: this.toVisitIcon});
 
-  marker.addListener('click', function() {
-    const infoBox = document.querySelector('#info-box');
-    infoView.renderInfoBox(infoBox, country);
-  });
+  // marker.addListener('click', function() {
+  //   const infoBox = document.querySelector('#info-box');
+  //   infoView.renderInfoBox(infoBox, country);
+  // });
 
     this.toVisitMarkers.push(marker);
 };

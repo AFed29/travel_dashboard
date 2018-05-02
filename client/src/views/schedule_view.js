@@ -69,10 +69,8 @@ ScheduleView.prototype.renderSchedulePage = function (schedule) {
   console.log('schedule', schedule);
   const destination = document.querySelector('#destination');
   destination.textContent = schedule.country.name;
-  const startDate = document.querySelector('#startDate');
-  startDate.textContent = Helpers.prettyDate(schedule.startDate);
-  const endDate = document.querySelector('#endDate');
-  endDate.textContent = Helpers.prettyDate(schedule.endDate);
+  const startDate = document.querySelector('#date');
+  date.textContent = `${Helpers.prettyDate(schedule.startDate)} - ${Helpers.prettyDate(schedule.endDate)}`
   const note = document.querySelector('#note');
   const form = document.querySelector('form');
   const editNoteButton = document.querySelector('#editNote');

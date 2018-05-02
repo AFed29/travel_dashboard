@@ -1,6 +1,7 @@
 const Request = require('./helpers/request.js');
 const ScheduleView = require('./views/schedule_view.js');
 const Schedule = require('./models/schedule.js');
+const InfoView = require('./views/info_view.js')
 
 
 const id = window.location.pathname.split('/')[2];
@@ -9,8 +10,11 @@ let newSchedule;
 const renderPage = function(schedule){
   newSchedule = new Schedule(schedule);
   const scheduleContainer = document.querySelector('#schedule');
+  const infoContainer = document.querySelector('#schedule-info-box')
   const scheduleView = new ScheduleView();
+  const infoView = new InfoView();
   scheduleView.renderSchedulePage(newSchedule);
+  infoView.renderInfoBox(infoContainer, newSchedule.country);
 };
 
 const pageLoad = function(){

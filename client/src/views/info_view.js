@@ -5,8 +5,6 @@ InfoView.prototype.renderInfoBox = function (parentContainer, country) {
 
   const ul = document.createElement('ul');
 
-  renderListItem(ul, `Country: ${country.name}`);
-
   const flag = document.createElement('img');
   flag.id = 'flag-image';
   flag.src = country.flagUrl;
