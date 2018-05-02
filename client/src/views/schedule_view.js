@@ -15,8 +15,9 @@ ScheduleView.prototype.renderAll = function (scheduleArray) {
 };
 
 ScheduleView.prototype.renderNextTrip = function (schedule) {
-  const scheduleContainer = document.querySelector('.next-trip-schedule');
+  const scheduleContainer = document.querySelector('#next-trip-schedule');
     scheduleContainer.classList.remove('hidden');
+    scheduleContainer.classList.add('next-trip-schedule');
   const title = document.createElement('h2');
   title.textContent = 'Upcoming trip';
   const country = document.createElement('p');
