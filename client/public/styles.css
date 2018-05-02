@@ -7,16 +7,35 @@ html, body {
 header {
   display: flex;
   flex-direction: row;
-  padding: 0 1.5rem; }
+  padding: 0 1.5rem;
+  margin-top: 1rem; }
   header #nav-title {
     flex: 2;
     display: flex;
     flex-direction: column; }
-  header #next-trip-schedule {
+    header #nav-title nav ul {
+      list-style: none;
+      padding: 0; }
+      header #nav-title nav ul li {
+        display: inline-block;
+        margin-right: 1rem;
+        font-size: 1.25rem; }
+  header .next-trip-schedule {
     flex: 1;
+    flex-direction: column;
+    max-width: 25vw;
+    width: auto;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    border: 1px solid #62929E;
+    padding-left: 2rem;
+    border-radius: 10px; }
+    header .next-trip-schedule h2 {
+      margin: 0;
+      font-weight: normal; }
+    header .next-trip-schedule p {
+      margin: 0;
+      padding: 0; }
 
 h1 {
   font-family: "Playfair Display", serif;
@@ -32,20 +51,24 @@ button {
   font-size: 1rem;
   border-radius: 10px;
   background-color: none;
-  border: 1px solid #5CA4A9;
+  border: 1px solid #62929E;
   padding: 0.5rem 1rem; }
 
 button:hover {
-  background-color: #5CA4A9;
+  background-color: #62929E;
   transition-duration: 0.5s;
   color: white; }
 
 a {
-  color: #ED6A5A;
+  color: #9DD9D2;
   text-decoration: none; }
 
 a:visited {
-  color: #ED6A5A; }
+  color: #9DD9D2; }
+
+a:hover {
+  color: #62929E;
+  transition-duration: 0.5s; }
 
 .hidden {
   display: none; }
@@ -57,11 +80,11 @@ a:visited {
 #list-wrapper {
   display: flex;
   flex-direction: row;
-  padding: 1rem;
+  padding: 0 1rem;
   justify-content: space-around; }
   #list-wrapper .country-list {
     width: 45vw;
-    margin: 0 2rem 4rem 2rem;
+    margin: 4rem 2rem;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap; }
@@ -71,7 +94,7 @@ a:visited {
       display: inline; }
     #list-wrapper .country-list select {
       font-family: "Roboto", sans-serif;
-      border: 1px solid #9BC1BC;
+      border: 1px solid #4A6D7C;
       align-self: center;
       font-size: 1rem; }
     #list-wrapper .country-list ul {
@@ -91,13 +114,7 @@ a:visited {
   flex-direction: row;
   padding: 1rem;
   justify-content: space-around;
-  background-color: #ED6A5A; }
-  #next-trip #next-trip-info ul {
-    list-style: none; }
-  #next-trip #next-trip-info img {
-    height: 50px; }
-  #next-trip #next-trip-schedule ul {
-    list-style: none; }
+  background-color: #9DD9D2; }
 
 #schedules {
   display: flex;
@@ -105,12 +122,19 @@ a:visited {
   margin: 1.5rem;
   justify-content: flex-start;
   flex-wrap: wrap; }
+  #schedules h2 {
+    width: 100%;
+    font-weight: normal;
+    margin-top: 2rem;
+    margin-right: 0.5rem;
+    text-align: center; }
   #schedules form {
     width: 100%;
     align-self: center;
     display: flex;
     justify-content: center;
-    align-content: center; }
+    align-content: center;
+    margin-bottom: 1.5rem; }
     #schedules form label {
       padding-left: 1.5rem;
       padding-right: 1rem;
@@ -118,18 +142,19 @@ a:visited {
       align-items: center; }
     #schedules form select {
       font-family: "Roboto", sans-serif;
-      border: 1px solid #9BC1BC;
+      border: 1px solid #4A6D7C;
       font-size: 1rem; }
     #schedules form input {
       font-size: 1rem;
       font-family: "Roboto", sans-serif;
       text-align: center;
       border-radius: 10px;
-      border: 1px solid #9BC1BC; }
+      border: 1px solid #4A6D7C; }
   #schedules ul {
     min-width: 20vw;
     max-width: 30vw;
     list-style: none;
-    background-color: #5CA4A9;
+    border: 1px solid #62929E;
+    border-radius: 10px;
     padding: 1.5rem 1rem;
     margin: 0.5rem; }

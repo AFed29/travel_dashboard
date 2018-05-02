@@ -8,12 +8,12 @@
 
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Travel Dashboard</title>
+  <title>WanderList</title>
 </head>
 <body>
   <header>
     <div id="nav-title">
-      <h1>Travel Dashboard</h1>
+      <h1>WanderList</h1>
       <nav>
         <ul>
           <li><a href="/"> Home </a></li>
@@ -22,7 +22,7 @@
         </ul>
       </nav>
     </div>
-    <div id="next-trip-schedule">
+    <div class="next-trip-schedule hidden">
     </div>
   </header>
   <section id="list-wrapper">
@@ -48,6 +48,7 @@
   <section id="map-wrapper"></section>
 
   <section id="schedules">
+    <h2>Add a schedule</h2>
     <form>
       <label for="country">Country:</label>
       <select id="scheduleCountry" name="scheduleCountry">
@@ -59,7 +60,7 @@
       <input id="endDateInput" type="date" name="endDate">
       <button type="submit" id="createScheduleButton">Create Schedule</button>
     </form>
-
+    <h2>Planned trips</h2>
   </section>
 
 

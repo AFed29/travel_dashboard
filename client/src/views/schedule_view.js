@@ -1,5 +1,6 @@
 const Helpers = require('../helpers/format_helpers.js');
 const InfoView = require('./info_view.js');
+const Schedule = require('../models/schedule.js')
 
 const infoView = new InfoView();
 
@@ -14,8 +15,22 @@ ScheduleView.prototype.renderAll = function (scheduleArray) {
 };
 
 ScheduleView.prototype.renderNextTrip = function (schedule) {
-  const scheduleContainer = document.querySelector('#next-trip-schedule');
-  renderSingleSchedule(scheduleContainer, schedule);
+  const scheduleContainer = document.querySelector('.next-trip-schedule');
+    scheduleContainer.classList.remove('hidden');
+  const title = document.createElement('h2');
+  title.textContent = 'Upcoming trip';
+  const country = document.createElement('p');
+  country.textContent = schedule.country.name;
+  const date = document.createElement('p');
+  date.textContent = `${Helpers.prettyDate(schedule.startDate)} - ${Helpers.prettyDate(schedule.endDate)}`
+  const scheduleLink = document.createElement('a');
+  scheduleLink.textContent = 'View schedule details';
+  scheduleLink.href = `HTTP://localhost:3000/schedule/${schedule.id}`;
+
+  scheduleContainer.appendChild(title);
+  scheduleContainer.appendChild(country);
+  scheduleContainer.appendChild(date);
+  scheduleContainer.appendChild(scheduleLink);
 };
 
 ScheduleView.prototype.renderOne = function (schedule, container) {
@@ -36,6 +51,18 @@ ScheduleView.prototype.renderOption = function(parentSelect, country) {
   option.value = country._id;
   parentSelect.appendChild(option);
 };
+
+ScheduleView.prototype.renderAllSchedules = function(schedules) {
+  if (schedules.length) {
+    const nextTrip = new Schedule(schedules.shift());
+    this.renderNextTrip(nextTrip);
+    schedules.forEach((schedule) => {
+      const newSchedule = new Schedule(schedule);
+      const scheduleContainer = document.querySelector('#schedules');
+      this.renderOne(newSchedule, scheduleContainer);
+    });
+  }
+}
 
 ScheduleView.prototype.renderSchedulePage = function (schedule) {
   console.log('schedule', schedule);
@@ -63,7 +90,7 @@ ScheduleView.prototype.renderSchedulePage = function (schedule) {
 const renderSingleSchedule = function(parentContainer, schedule){
   const ul= document.createElement('ul');
   const country = document.createElement('li');
-  country.textContent = `Destination: ${schedule.country.name}`
+  country.textContent = schedule.country.name;
   const startDate = document.createElement('li');
   startDate.textContent = `Start date: ${Helpers.prettyDate(schedule.startDate)}`
   const endDate = document.createElement('li');
@@ -77,6 +104,7 @@ const renderSingleSchedule = function(parentContainer, schedule){
   ul.appendChild(scheduleLink);
   parentContainer.appendChild(ul);
 }
+
 
 
 

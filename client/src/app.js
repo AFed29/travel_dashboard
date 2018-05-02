@@ -53,16 +53,8 @@ const appStart = function() {
     scheduleView.renderSelect(toVisitCountries);
   });
 
-  scheduleRequest.get((schedules) => { //TODO Put into schedule view
-    if (schedules.length) {
-      const nextTrip = new Schedule(schedules.shift());
-      scheduleView.renderNextTrip(nextTrip);
-      schedules.forEach((schedule) => {
-        const newSchedule = new Schedule(schedule);
-        const scheduleContainer = document.querySelector('#schedules');
-        scheduleView.renderOne(newSchedule, scheduleContainer);
-      });
-    }
+  scheduleRequest.get((schedules) => {
+    scheduleView.renderAllSchedules(schedules);
   });
 
   visitedSelect.addEventListener('change', (event) => {

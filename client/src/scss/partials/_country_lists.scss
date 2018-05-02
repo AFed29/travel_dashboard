@@ -3,12 +3,12 @@
 #list-wrapper {
   display: flex;
   flex-direction: row;
-  padding: $small-gap;
+  padding: 0 $small-gap;
   justify-content: space-around;
 
   .country-list {
     width: 45vw;
-    margin: 0 $large-gap $large-gap*2 $large-gap;
+    margin: $large-gap*2 $large-gap;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

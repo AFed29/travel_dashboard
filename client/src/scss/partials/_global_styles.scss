@@ -11,18 +11,46 @@ header {
   display: flex;
   flex-direction: row;
   padding: 0 $medium-gap;
+  margin-top: $small-gap;
 
   #nav-title {
     flex: 2;
     display: flex;
     flex-direction: column;
+
+    nav {
+      ul {
+        list-style: none;
+        padding: 0;
+        li {
+          display:inline-block;
+          margin-right: $small-gap;
+          font-size: 1.25rem;
+        }
+      }
+    }
   }
 
-  #next-trip-schedule {
+  .next-trip-schedule {
     flex: 1;
+    flex-direction: column;
+    max-width: 25vw;
+    width: auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+    border: 1px solid $primary-colour;
+    padding-left: $large-gap;
+    border-radius: 10px;
+
+    h2 {
+      margin: 0;
+      font-weight: normal;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
   }
 
 }
@@ -60,6 +88,11 @@ a {
 
 a:visited {
   color: $accent-colour;
+}
+
+a:hover {
+  color: $primary-colour;
+  transition-duration: 0.5s;
 }
 
 .hidden {
