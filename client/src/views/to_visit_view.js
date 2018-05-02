@@ -10,10 +10,10 @@ ToVisitView.prototype.renderAll = function (toVisitCountryArray, request) {
   });
 };
 
-ToVisitView.prototype.renderOne = function (country) {
-  const toVisitList = document.querySelector('#to-visit-list');
-  renderListItem(toVisitList, country.name);
-};
+// ToVisitView.prototype.renderOne = function (country) {
+//   const toVisitList = document.querySelector('#to-visit-list');
+//   renderListItem(toVisitList, country.name);
+// };
 
 const renderListItem = function (parentList, country) {
   const li = document.createElement('li');
@@ -29,7 +29,6 @@ const renderDeleteButton = function (parentList, id, request) {
   button.addEventListener('click', function (evt) {
     request.delete(id, function () {
       const listItem = document.getElementById(id);
-      console.log(listItem);
       listItem.parentNode.removeChild(listItem);
 
     });

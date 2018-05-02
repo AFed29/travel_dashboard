@@ -53,15 +53,12 @@ const appStart = function() {
     scheduleView.renderSelect(toVisitCountries);
   });
 
-  scheduleRequest.get((schedules) => {
+  scheduleRequest.get((schedules) => { //TODO Put into schedule view
     if (schedules.length) {
       const nextTrip = new Schedule(schedules.shift());
-      nextTrip.getCountryInfo(() => {
-        scheduleView.renderNextTrip(nextTrip);
-      });
+      scheduleView.renderNextTrip(nextTrip);
       schedules.forEach((schedule) => {
         const newSchedule = new Schedule(schedule);
-        console.log(newSchedule);
         const scheduleContainer = document.querySelector('#schedules');
         scheduleView.renderOne(newSchedule, scheduleContainer);
       });
@@ -74,7 +71,6 @@ const appStart = function() {
       const newVistedCountry = new Visited(selectedCountry);
       visitedRequest.post(newVistedCountry, (country) => {
         mainMap.addVisitedMarker(country.latlng);
-        // visitedView.renderOne(country);
         countries.visitedCountries.push(country);
       });
     }
@@ -86,7 +82,6 @@ const appStart = function() {
       const newToVisitCountry = new ToVisit(selectedCountry);
       toVisitRequest.post(newToVisitCountry,  (country) => {
         mainMap.addToVisitMarker(country.latlng, country);
-        // toVisitView.renderOne(country);
         countries.toVisitCountries.push(country);
         scheduleView.renderOption(scheduleCountrySelect, country);
       });
@@ -118,11 +113,10 @@ const onScheduleFormSubmit = function(event) {
 
   let today = new Date();
   today.setHours(0, 0, 0);
-  if (Date.parse(endDate) >= today && Date.parse(endDate) > Date.parse(startDate)) {
+  if (Date.parse(endDate) >= today && Date.parse(endDate) > Date.parse(startDate)) { //TODO extract to helpers
     errorMessage.classList.add('hidden');
     errorMessage.textContent = '';
     const newSchedule = new Schedule({countryID: countryID, startDate: startDate, endDate: endDate});
-    console.log('new schedule:', newSchedule);
     newSchedule.getCountryInfo(()=> {
       scheduleRequest.post(newSchedule, createScheduleRequestComplete);
     })
