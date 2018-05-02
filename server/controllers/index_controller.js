@@ -13,10 +13,6 @@ const createIndexRouter = function(dbConnection){
   router.use('/schedule', createScheduleRouter(dbConnection));
   router.use('/lists', createListRouter());
 
-  // router.get('/', function(req, res){
-  //   res.sendFile(path.join(__dirname,'../../client/public', 'index.html'))
-  // })
-
   return router;
 }
 
