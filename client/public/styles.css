@@ -106,6 +106,18 @@ a:hover {
       width: 35px;
       height: 35px; }
 
+#visited-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem; }
+
+#to-visit-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem; }
+
 #info-box img {
   height: 50px; }
 

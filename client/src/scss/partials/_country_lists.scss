@@ -43,3 +43,25 @@
 
 
 }
+
+
+#visited-list {
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: $small-gap;
+  }
+
+}
+
+#to-visit-list {
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: $small-gap;
+
+  }
+
+}
