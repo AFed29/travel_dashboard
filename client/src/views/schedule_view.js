@@ -77,7 +77,8 @@ ScheduleView.prototype.renderSchedulePage = function (schedule) {
   const editNoteButton = document.querySelector('#editNote');
 
   if (schedule.note) {
-    note.textContent = schedule.note;
+    noteText = schedule.note.replace(/\n/g, '<br />');
+    note.innerHTML = noteText;
     form.noteInput.value = schedule.note;
     form.classList.add("hidden");
   }

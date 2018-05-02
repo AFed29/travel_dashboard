@@ -35,7 +35,7 @@ const onNoteFormSubmit = function(event) {
     noteForm.classList.add('hidden');
     const note = document.querySelector('#note');
     const editNoteButton = document.querySelector('#editNote');
-    note.textContent = noteText;
+    note.innerHTML = noteText.replace(/\n/g, '<br />');;
     note.classList.remove("hidden");
     editNoteButton.classList.remove("hidden");
   });
