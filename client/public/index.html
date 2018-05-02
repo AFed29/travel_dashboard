@@ -1,59 +1,69 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script src="js/main_bundle.js"></script>
-    <link rel="stylesheet" href="/styles.css">
+<head>
+  <meta charset="utf-8">
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+  <script src="js/main_bundle.js"></script>
+  <link rel="stylesheet" href="/styles.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Travel Dashboard</title>
-  </head>
-  <body>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Travel Dashboard</title>
+</head>
+<body>
+  <header>
     <h1>Travel Dashboard</h1>
-    <section id="next-trip">
-        <div id="next-trip-schedule">
-        </div>
-        <div id="next-trip-info">
-        </div>
-    </section>
+    <nav>
+      <a href="/lists"> View list of Visited / To visit countries </a>
+    </nav>
+    <div id="next-trip-schedule">
+    </div>
+
+  </header>
+  <section id="list-wrapper">
+    <div id="visited-countries" class="country-list">
+
+      <h2>Where I have been...<img id="visited-marker"  alt="marker" /></h2>
+
+      <select id="visited-select">
+        <option disabled selected>Please choose a country</option>
+      </select>
+
+    </div>
+
+    <div id="to-visit-countries" class="country-list">
+      <h2>Where I want to go...<img id="to-visit-marker" alt="marker" /></h2>
+
+      <select id="to-visit-select">
+        <option disabled selected>Please choose a country</option>
+      </select>
+
+    </div>
+  </section>
+  <section id="map-wrapper"></section>
+
+  <section id="schedules">
     <form>
-      <label for="country">Country</label>
+      <label for="country">Country:</label>
       <select id="scheduleCountry" name="scheduleCountry">
         <option disabled selected>Choose a destintion</option>
       </select>
-      <label for="startDate">Start Date</label>
+      <label for="startDate">Start Date:</label>
       <input id="startDateInput" type="date" name="startDate">
-      <label for="endDate">End Date</label>
+      <label for="endDate">End Date:</label>
       <input id="endDateInput" type="date" name="endDate">
       <button type="submit" id="createScheduleButton">Create Schedule</button>
     </form>
-    <div id="input-error" class="hidden"></div>
-    <section id="list-wrapper">
-      <div id="visited-countries" class="country-list">
 
-          <h2>Where I have been...<img id="visited-marker"  alt="marker" /></h2>
+  </section>
 
-        <select id="visited-select">
-          <option disabled selected>Please choose a country</option>
-        </select>
 
-      </div>
+  <div id="input-error" class="hidden"></div>
 
-      <div id="to-visit-countries" class="country-list">
-        <h2>Where I want to go...<img id="to-visit-marker" alt="marker" /></h2>
 
-        <select id="to-visit-select">
-          <option disabled selected>Please choose a country</option>
-        </select>
 
-      </div>
-    </section>
-    <a href="/lists"> View list of Visited / To visit countries </a>
-    <section id="map-wrapper"></section>
-    <section id="schedules"></section>
-    <section id="info-box"> </section>
 
-  </body>
+  <section id="info-box"> </section>
+
+</body>
 </html>

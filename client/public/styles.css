@@ -10,6 +10,22 @@ h1 {
   font-weight: normal;
   font-size: 3rem; }
 
+h2 {
+  margin-top: 0; }
+
+button {
+  margin: 0 1.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  background-color: none;
+  border: 1px solid #5CA4A9;
+  padding: 0.5rem 1rem; }
+
+button:hover {
+  background-color: #5CA4A9;
+  transition-duration: 0.5s;
+  color: white; }
+
 .hidden {
   display: none; }
 
@@ -24,8 +40,7 @@ h1 {
   justify-content: space-around; }
   #list-wrapper .country-list {
     width: 45vw;
-    height: 40vh;
-    margin: 0 2rem;
+    margin: 0 2rem 4rem 2rem;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap; }
@@ -69,6 +84,27 @@ h1 {
   margin: 1.5rem;
   justify-content: flex-start;
   flex-wrap: wrap; }
+  #schedules form {
+    width: 100%;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-content: center; }
+    #schedules form label {
+      padding-left: 1.5rem;
+      padding-right: 1rem;
+      display: flex;
+      align-items: center; }
+    #schedules form select {
+      font-family: "Roboto", sans-serif;
+      border: 1px solid #9BC1BC;
+      font-size: 1rem; }
+    #schedules form input {
+      font-size: 1rem;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+      border-radius: 10px;
+      border: 1px solid #9BC1BC; }
   #schedules ul {
     min-width: 20vw;
     max-width: 30vw;

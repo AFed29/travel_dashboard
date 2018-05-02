@@ -15,8 +15,6 @@ ScheduleView.prototype.renderAll = function (scheduleArray) {
 
 ScheduleView.prototype.renderNextTrip = function (schedule) {
   const scheduleContainer = document.querySelector('#next-trip-schedule');
-  const infoContainer = document.querySelector('#next-trip-info');
-  infoView.renderInfoBox(infoContainer, schedule.country);
   renderSingleSchedule(scheduleContainer, schedule);
 };
 

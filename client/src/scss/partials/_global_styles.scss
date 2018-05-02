@@ -14,6 +14,25 @@ h1 {
   font-size: 3rem;
 }
 
+h2 {
+  margin-top: 0;
+}
+
+button {
+  margin: 0 $medium-gap;
+  font-size: 1rem;
+  border-radius: 10px;
+  background-color: none;
+  border: 1px solid $primary-colour;
+  padding: 0.5rem $small-gap ;
+}
+
+button:hover {
+  background-color: $primary-colour;
+  transition-duration: 0.5s;
+  color: white;
+}
+
 .hidden {
   display: none;
 }

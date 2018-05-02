@@ -8,8 +8,7 @@ Request.prototype.get = function (onComplete) {
 
   request.addEventListener('load', function() {
     if(request.status !== 200) return;
-    console.log(request.responseText);
-    const response = JSON.parse(request.responseText);
+      const response = JSON.parse(request.responseText);
 
     onComplete(response);
   });

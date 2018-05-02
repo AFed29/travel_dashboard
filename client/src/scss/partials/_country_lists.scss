@@ -8,8 +8,7 @@
 
   .country-list {
     width: 45vw;
-    height: 40vh;
-    margin: 0 $large-gap;
+    margin: 0 $large-gap $large-gap*2 $large-gap;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
