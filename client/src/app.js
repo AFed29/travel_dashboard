@@ -39,6 +39,26 @@ const appStart = function() {
 
   });
 
+  const siteTitle = document.querySelector('h1');
+  siteTitle.addEventListener('click', () => {
+    siteTitle.classList.add('spinning');
+  });
+
+  const toVisitMarker = document.querySelector('#to-visit-marker');
+  toVisitMarker.addEventListener('click', () => {
+    toVisitMarker.classList.add('spinning');
+  });
+
+  const mapWrapper = document.querySelector('#map-wrapper');
+  mapWrapper.addEventListener('click', () => {
+    mapWrapper.classList.add('spinning');
+  });
+
+  const visitedMarker = document.querySelector('#visited-marker');
+  visitedMarker.addEventListener('click', () => {
+    visitedMarker.classList.add('spinning');
+  });
+
   const visitedIcon = document.querySelector('#visited-marker');
   visitedIcon.src = mainMap.visitedIcon;
 
