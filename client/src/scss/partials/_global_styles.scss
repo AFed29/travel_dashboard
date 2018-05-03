@@ -115,3 +115,16 @@ a:hover {
         transform:rotate(360deg);
     }
 }
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes pulse {
+	0% { font-size: 3rem; }
+	50% { font-size: 3.5rem; }
+	100% { font-size: 3rem; }
+}

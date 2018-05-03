@@ -41,7 +41,7 @@ const appStart = function() {
 
   const siteTitle = document.querySelector('h1');
   siteTitle.addEventListener('click', () => {
-    siteTitle.classList.add('spinning');
+    siteTitle.classList.add('pulse');
   });
 
   const toVisitMarker = document.querySelector('#to-visit-marker');
