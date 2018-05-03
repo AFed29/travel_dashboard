@@ -118,9 +118,6 @@ a:hover {
   align-items: center;
   margin-top: 1rem; }
 
-#info-box img {
-  height: 50px; }
-
 #next-trip {
   display: flex;
   flex-direction: row;
@@ -183,12 +180,17 @@ a:hover {
   #schedule-wrapper #schedule h2 {
     font-weight: normal; }
   #schedule-wrapper #schedule-info-box img {
-    height: 50px; }
+    height: 100px; }
   #schedule-wrapper #schedule-info-box ul {
     list-style: none;
     margin: 0;
     padding: 0; }
+    #schedule-wrapper #schedule-info-box ul ul {
+      margin-left: 1rem; }
 
 #note-wrapper {
+  margin-top: 1.5rem;
   display: flex;
   justify-content: center; }
+  #note-wrapper textarea {
+    font-size: 1rem; }

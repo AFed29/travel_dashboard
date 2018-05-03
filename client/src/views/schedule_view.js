@@ -66,7 +66,6 @@ ScheduleView.prototype.renderAllSchedules = function(schedules) {
 }
 
 ScheduleView.prototype.renderSchedulePage = function (schedule) {
-  console.log('schedule', schedule);
   const destination = document.querySelector('#destination');
   destination.textContent = schedule.country.name;
   const startDate = document.querySelector('#date');

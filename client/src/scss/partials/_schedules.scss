@@ -88,19 +88,28 @@
   #schedule-info-box {
 
     img {
-      height: 50px;
+      height: 100px;
     }
 
     ul {
       list-style: none;
       margin: 0;
       padding: 0;
+
+      ul {
+        margin-left: $small-gap;
+      }
     }
 
   }
 }
 
 #note-wrapper {
+  margin-top: $medium-gap;
   display: flex;
   justify-content: center;
+
+  textarea {
+    font-size: 1rem;
+  }
 }
