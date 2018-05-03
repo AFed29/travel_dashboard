@@ -9,11 +9,6 @@ VisitedView.prototype.renderAll = function (visitedCountriesArray, request) {
   });
 };
 
-// VisitedView.prototype.renderOne = function (country) {
-//   const visitedList = document.querySelector('#visited-list');
-//   renderListItem(visitedList, country);
-// };
-
 const renderListItem = function (parentList, country) {
   const li = document.createElement('li');
   li.id = country._id;

@@ -16,14 +16,14 @@ InfoView.prototype.renderInfoBox = function (parentContainer, country) {
   const currencyUl = document.createElement('ul');
   ul.appendChild(currencyUl);
   country.currencies.forEach( currency => {
-    renderListItem(currencyUl, currency.name);
+    renderListItem(currencyUl, `${currency.symbol} ${currency.name}`);
   });
 
   renderListItem(ul, "Languages:");
   const languageUl = document.createElement('ul');
   ul.appendChild(languageUl);
   country.languages.forEach( language => {
-    renderListItem(languageUl, language.name);
+    renderListItem(languageUl, `${language.name} (${language.nativeName})`);
   });
   parentContainer.appendChild(ul);
 };

@@ -46,7 +46,7 @@ h1 {
 h2 {
   margin-top: 0; }
 
-button {
+button, #submit-note {
   margin: 0 1.5rem;
   font-size: 1rem;
   border-radius: 10px;
@@ -130,9 +130,6 @@ a:hover {
   align-items: center;
   margin-top: 1rem; }
 
-#info-box img {
-  height: 50px; }
-
 #next-trip {
   display: flex;
   flex-direction: row;
@@ -174,6 +171,10 @@ a:hover {
       text-align: center;
       border-radius: 10px;
       border: 1px solid #4A6D7C; }
+  #schedules #input-error {
+    width: 100%;
+    text-align: center;
+    color: red; }
   #schedules ul {
     min-width: 20vw;
     max-width: 30vw;
@@ -185,16 +186,23 @@ a:hover {
 
 #schedule-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 1rem 10rem;
-  justify-content: space-between; }
+  justify-content: space-around; }
   #schedule-wrapper #schedule h2 {
     font-weight: normal; }
-  #schedule-wrapper #schedule-info-box {
-    margin: 1.5rem 0; }
-    #schedule-wrapper #schedule-info-box img {
-      height: 50px; }
-    #schedule-wrapper #schedule-info-box ul {
-      list-style: none;
-      margin: 0;
-      padding: 0; }
+  #schedule-wrapper #schedule-info-box img {
+    height: 100px; }
+  #schedule-wrapper #schedule-info-box ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #schedule-wrapper #schedule-info-box ul ul {
+      margin-left: 1rem; }
+
+#note-wrapper {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center; }
+  #note-wrapper textarea {
+    font-size: 1rem; }

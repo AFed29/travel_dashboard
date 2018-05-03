@@ -134,7 +134,7 @@ const onScheduleFormSubmit = function(event) {
     })
   }
   else {
-    errorMessage.textContent = 'Trips must end after today';
+    errorMessage.textContent = 'Flux capacitor not yet charged';
     errorMessage.classList.remove('hidden');
   }
 }
