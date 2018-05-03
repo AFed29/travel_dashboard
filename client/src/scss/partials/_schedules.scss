@@ -55,6 +55,12 @@
 
   }
 
+  #input-error {
+    width: 100%;
+    text-align: center;
+    color: red;
+  }
+
   ul {
     min-width: 20vw;
     max-width: 30vw;
@@ -68,9 +74,9 @@
 
 #schedule-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: $small-gap $large-gap*5;
-  justify-content: space-between;
+  justify-content: space-around;
 
   #schedule {
 
@@ -80,7 +86,6 @@
   }
 
   #schedule-info-box {
-    margin: $medium-gap 0;
 
     img {
       height: 50px;
@@ -93,4 +98,9 @@
     }
 
   }
+}
+
+#note-wrapper {
+  display: flex;
+  justify-content: center;
 }
